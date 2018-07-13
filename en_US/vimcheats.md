@@ -6,7 +6,7 @@ This is just my personal VIM Cheat Sheet
 
 ## Get help inside vim
 
-`o` `N o` open a new line below the current line, append text (N times)
+`o` `N o` open a new line below the current line, append text (N times)  
 `O`	`N O`	open a new line above the current line, append text (N times)
 
 ## Delete all lines containing a pattern
