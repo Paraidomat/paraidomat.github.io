@@ -14,7 +14,11 @@
 [gimmick:theme](spacelab)
 [Home](index.md)
 [Networking Stuff]()
+
+  * # General
   * [GNS3 in AWS](AWS_GNS3_getting_started.md)
+  ----
+
 [VIM Cheats](vimcheats.md)
 
 
