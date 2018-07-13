@@ -6,15 +6,13 @@ Amazon AWS EC2 instance.
 ## Disclaimer
 
 <div class="alert alert-danger" role="alert">
-1. This ~~may be~~ **is** potentially unsafe
-   - The Server in the configuration shown is in any case reachable by the
-     public internet and there is no authentication on the GNS3 server
-     configured. But after you've made it through this document it will be 
-     easy to add a better security policy.
-   - I myself just added a VPN-Client on the AWS Server and connected it to
-     my router at home.
-2. This will eventually cost you a lot of money, should you forget to stop 
-   your instances!
+<ol>
+<li>This ~~may be~~ **is** potentially unsafe
+<ul><li>The Server in the configuration shown is in any case reachable by the public internet and there is no authentication on the GNS3 server configured. But after you've made it through this document it will be easy to add a better security policy.</li>
+<li>I myself just added a VPN-Client on the AWS Server and connected it to my router at home.</li>
+</ul></li>
+<li>This will eventually cost you a lot of money, should you forget to stop your instances!</li>
+</ol>
 </div>
 
 ## Introduction
