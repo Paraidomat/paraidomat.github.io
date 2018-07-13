@@ -1,8 +1,9 @@
+# Running GNS3 in an AWS EC2 Instance
 
 In this ~~Gist~~ Document I want to show you how to get started with GNS3 on an
 Amazon AWS EC2 instance.
 
-# Disclaimer
+## Disclaimer
 
 <div class="alert alert-danger" role="alert">
 1. This ~~may be~~ **is** potentially unsafe
@@ -16,11 +17,11 @@ Amazon AWS EC2 instance.
    your instances!
 </div>
 
-# Introduction
+## Introduction
 
 I'm assuming that you all are familiar with the basics of networking, basic Ubuntu/Linux and GNS3 as well as having access to at least one Cisco IOS image or a virtual machine of a networking OS you can work with. Before trying to run GNS3 in a client/server architecture i would highly suggest to install and try to run GNS3 locally so you have a good starting point and a basic knowledge of GNS3.
 
-# Creating your Amazon AWS account
+## Creating your Amazon AWS account
 
 In order to create your Amazon AWS account just register a new one on the [Amazon AWS Webpage](https://aws.amazon.com). You will need to provide your contact data and credit card information in order to do this. Amazon will call you on your provided phone number in order to validate your account.
 
@@ -28,7 +29,7 @@ After you've created your account you need to wait a little while until you can 
 
 When you receive the mail that notifies you of your account activation we finally can get to work. :)
 
-# Creating your first Machine
+## Creating your first Machine
 
 After you have successfully created your account you can start your first Amazon EC2 instance. In order to do that you need to go through the following steps:
 
@@ -61,7 +62,7 @@ After you have successfully created your account you can start your first Amazon
 10. On the `Launch Status` page click on the `View Instances` button, once the lauch is complete.
 11. You will be taken back to the EC2 dashboard where you will see your new instance. HOORAY!
 
-# Logging in to your Server using SSH
+## Logging in to your Server using SSH
 
 1. Open the EC2 Dashboard and locate your running instance and click on it.
 2. On the bottom you will presented with the Public DNS (IPv4) name of your Instance. It will look something like `ec2-XXX-XXX-XXX-XXX.compute-X.amazonaws.com`.
@@ -71,7 +72,7 @@ After you have successfully created your account you can start your first Amazon
    command.
    Accept the fingerprint and you should be taken to the servers bash CLI.
 
-# Install GNS3 Server
+## Install GNS3 Server
 
 In order to install the GNS3 Server you can use GNS3's [documentation](https://docs.gns3.com/1QXVIihk7dsOL7Xr7Bmz4zRzTsJ02wklfImGuHwTlaA4/index.html) with one little change:
 
@@ -85,15 +86,15 @@ sudo apt-get install gns3-server
 
 While installing GNS3 you will be asked if non-superusers should be able to run GNS3 and you want to choose `<yes>` there.
 
-# Start the GNS3 Server 
+## Start the GNS3 Server 
 
 If you want to run the GNS3 Server you just have to run the command: `gns3server`. Notice, that this time the hyphen is gone.
 
-## Changing the Log file
+### Changing the Log file
 
 You will notice that the `gns3server` is quite... chatty? If you do not want to see that many log messages on your SSH session just create a log file at your favorit position and use the `--log $LOGFILE_PATH` optional argument to make the logs disappear.
 
-# Connect your GNS3 Client to the Server
+## Connect your GNS3 Client to the Server
 
 1. Start the GNS3 Server on the EC2 instance.
 2. Start your local GNS3 client. Note that the Client and the Server need to have the same version.
@@ -101,8 +102,10 @@ You will notice that the `gns3server` is quite... chatty? If you do not want to 
 4. In the navigation on the left hand side click on `Server`
 5. Untick the `Enable local server` checkbox.
 6. Ass the following data to the form:
+   
    | Host | `ec2-XXX-XXX-XXX-XXX.compute-X.amazonaws.com` |
    | Port | `3080 TCP` |
+   
 7. Select `Apply`
 8. You should see that the client connects to the server.
 9. On the right hand side you should see in the `Servers Summary` window, that the internal hostname of the EC2 instance
@@ -118,7 +121,7 @@ If you will try to console in to your routers or devices you will notice that it
    * **Pro:** Routers/Devices will not be exposed to the public internet.
    * **Con:** It's a little cumbersome.
    
-# Okay cool! But what if I need more POWER?!
+## Okay cool! But what if I need more POWER?!
 
 Okay - That's the whole point of doing all of this, right? **Right!**
 
