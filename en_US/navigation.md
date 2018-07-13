@@ -12,6 +12,8 @@
   -->
 
 [gimmick:theme](spacelab)
+[Home](index.md)
+[VIM Chats](vimcheats.md)
 
 
 <!--
