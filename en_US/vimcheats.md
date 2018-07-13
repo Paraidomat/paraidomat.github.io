@@ -4,6 +4,11 @@ This is just my personal VIM Cheat Sheet
 
 > All these things are basically just stolen from other webpages. Mostly it's gonna be [vim.wikia.com](http://vim.wikia.com/wiki)
 
+## Get help inside vim
+
+`o` `N o` open a new line below the current line, append text (N times)
+`O`	`N O`	open a new line above the current line, append text (N times)
+
 ## Delete all lines containing a pattern
 
 For example, to delete all lines containing "profile" (remove the /d to show the lines that the command will delete):
@@ -19,3 +24,7 @@ The advantage of the command-line window is that you can use all Vim's editing p
 
 Press Enter to execute the current line (and close the command-line window); or
 Press Ctrl-c twice to close the command-line window (cancel).
+
+## How to avoid closing a complete Browser Tab when using `Ctrl-w`
+
+Impossibru
