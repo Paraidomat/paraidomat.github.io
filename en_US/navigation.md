@@ -3,7 +3,7 @@
   -- Do NOT remove the leading `#` character.
   -->
 
-# Paraidomats Wiki/Blog/Page
+# Paraidomats Knowledgebase
 
 
 <!--
@@ -13,7 +13,11 @@
 
 [gimmick:theme](spacelab)
 [Home](index.md)
+[Networking Stuff]()
+  * # General Stuff
+  * [GNS3 in AWS](AWS_GNS3_getting_started.md)
 [VIM Cheats](vimcheats.md)
+
 
 
 <!--
@@ -63,5 +67,4 @@
   -->
 
 <!--
-[gimmick:themechooser](Choose theme)
--->
+
