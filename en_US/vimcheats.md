@@ -2,6 +2,8 @@
 
 This is just my personal VIM Cheat Sheet
 
+> All these things are basically just stolen from other webpages. Mostly it's gonna be [vim.wikia.com](http://vim.wikia.com/wiki)
+
 ## Delete all lines containing a pattern
 
 For example, to delete all lines containing "profile" (remove the /d to show the lines that the command will delete):
