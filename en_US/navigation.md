@@ -13,7 +13,7 @@
 
 [gimmick:theme](spacelab)
 [Home](index.md)
-[VIM Chats](vimcheats.md)
+[VIM Cheats](vimcheats.md)
 
 
 <!--
@@ -36,7 +36,7 @@
   * [SubMenu Item 3](pages/subitem3.md)
   - - - -
   * # SubMenu Heading 3
-  * [SubMenu Item 3](pages/subitem3.md)
+  * [SubMenu Item 3](pages/subitem3.md) -->
 
 [Menu Item 2](pages/item2.md)
 
