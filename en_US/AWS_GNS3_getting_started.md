@@ -1,10 +1,20 @@
 
-In this Gist I want to show you how to get started with GNS3 on an Amazon AWS EC2 instance.
+In this ~~Gist~~ Document I want to show you how to get started with GNS3 on an
+Amazon AWS EC2 instance.
 
 # Disclaimer
 
-1. This may be potentially unsafe
-2. This will eventually cost you a lot of money, should you forget to stop your instances.
+<div class="alert alert-danger" role="alert">
+1. This ~~may be~~ **is** potentially unsafe
+   - The Server in the configuration shown is in any case reachable by the
+     public internet and there is no authentication on the GNS3 server
+     configured. But after you've made it through this document it will be 
+     easy to add a better security policy.
+   - I myself just added a VPN-Client on the AWS Server and connected it to
+     my router at home.
+2. This will eventually cost you a lot of money, should you forget to stop 
+   your instances!
+</div>
 
 # Introduction
 
