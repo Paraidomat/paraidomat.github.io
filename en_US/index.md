@@ -11,6 +11,9 @@
 - Networking Engineer
 - Cisco CCNA (R+S, SP), Cisco CCNP (R+S, 1/4 SP)
 - A guy with a love for:
+  - Linux
   - open source software
   - REST APIs, if they are done well ;-)
+  - Avionics
+  - Rock climbing
 

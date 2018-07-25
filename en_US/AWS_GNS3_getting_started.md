@@ -41,11 +41,11 @@ After you have successfully created your account you can start your first Amazon
    * Set the Security group name to something like `GNS3`
    * Set a useful description
    * Add another rule with the following data:
-   
+     
      | Type | Protocol | Port Range | Source | Description |
      | --- | --- | --- | --- | --- |
      | Custom TCP Port | TCP | 3080 | 0.0.0.0/0 | GNS3 API |
-   
+     
    > Please note that this opens this server instance to the "big bad internet". You should change these rules to your needs
    > to be secure.
    
@@ -54,7 +54,8 @@ After you have successfully created your account you can start your first Amazon
 9. Let the Wizard create a new SSH key pair and give it a useful name. 
    * After you've set the name click on the `Download key pair`.
    * Take note of Amazons warning regarding key files:
-   > You have to download the **private key file** (\*.pem file) before you can continue. 
+   > You have to download the **private key file** (\*.pem file) before you 
+   > can continue. 
    > **Store it in a secure and accessible location.**
    > You will not be able to download the file again after it's created.
 10. On the `Launch Status` page click on the `View Instances` button, once the lauch is complete.
@@ -99,8 +100,9 @@ You will notice that the `gns3server` is quite... chatty? If you do not want to 
 3. Click on `Edit -> Preferences` (or press `[ctrl]+[shift]+[p]`)
 4. In the navigation on the left hand side click on `Server`
 5. Untick the `Enable local server` checkbox.
-6. Ass the following data to the form:
+6. Add the following data to the form:
    
+   | Field Name | Data |
    | Host | `ec2-XXX-XXX-XXX-XXX.compute-X.amazonaws.com` |
    | Port | `3080 TCP` |
    
