@@ -6,7 +6,9 @@ This is just my personal VIM Cheat Sheet
 
 ## Get help inside vim
 
-`:help`
+`:help`[^help]
+
+[^help]: http://vim.wikia.com/wiki/Help
 
 ## Add new lines
 
