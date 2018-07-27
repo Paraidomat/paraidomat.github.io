@@ -5,15 +5,10 @@ Amazon AWS EC2 instance.
 
 ## Disclaimer
 
-<div class="alert alert-danger" role="alert">
-<ol>
-<li>This ~~may be~~ **is** potentially unsafe
-<ul><li>The Server in the configuration shown is in any case reachable by the public internet and there is no authentication on the GNS3 server configured. But after you've made it through this document it will be easy to add a better security policy.</li>
-<li>I myself just added a VPN-Client on the AWS Server and connected it to my router at home.</li>
-</ul></li>
-<li>This will eventually cost you a lot of money, should you forget to stop your instances!</li>
-</ol>
-</div>
+Altert: This ~~may be~~ **is** potentially unsafe
+The Server in the configuration shown is in any case reachable by the public internet and there is no authentication on the GNS3 server configured. But after you've made it through this document it will be easy to add a better security policy.
+I myself just added a VPN-Client on the AWS Server and connected it to my router at home.
+This will also eventually cost you a lot of money, should you forget to stop your instances!
 
 ## Introduction
 
@@ -42,22 +37,22 @@ After you have successfully created your account you can start your first Amazon
    * Set a useful description
    * Add another rule with the following data:
      
-     | Type | Protocol | Port Range | Source | Description |
-     | --- | --- | --- | --- | --- |
-     | Custom TCP Port | TCP | 3080 | 0.0.0.0/0 | GNS3 API |
+     | Type            | Protocol | Port Range | Source    | Description |
+     | --------------- | -------- | ---------- | --------- | ----------- |
+     | Custom TCP Port | TCP      | 3080       | 0.0.0.0/0 | GNS3 API    |
      
-   > Please note that this opens this server instance to the "big bad internet". You should change these rules to your needs
-   > to be secure.
+   Attention: Please note that this opens this server instance to the "big bad internet".
+   You should change these rules to your need to be secure.
    
    Click on `Review and launch`
 8. Click on `Launch` in the bottom right corner.
 9. Let the Wizard create a new SSH key pair and give it a useful name. 
    * After you've set the name click on the `Download key pair`.
    * Take note of Amazons warning regarding key files:
-   > You have to download the **private key file** (\*.pem file) before you 
-   > can continue. 
-   > **Store it in a secure and accessible location.**
-   > You will not be able to download the file again after it's created.
+     > You have to download the **private key file** (\*.pem file) before you 
+     > can continue. 
+     > **Store it in a secure and accessible location.**
+     > You will not be able to download the file again after it's created.
 10. On the `Launch Status` page click on the `View Instances` button, once the lauch is complete.
 11. You will be taken back to the EC2 dashboard where you will see your new instance. HOORAY!
 
@@ -103,6 +98,7 @@ You will notice that the `gns3server` is quite... chatty? If you do not want to 
 6. Add the following data to the form:
    
    | Field Name | Data |
+   | ---------- | ---- |
    | Host | `ec2-XXX-XXX-XXX-XXX.compute-X.amazonaws.com` |
    | Port | `3080 TCP` |
    
