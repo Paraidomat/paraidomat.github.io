@@ -10,6 +10,10 @@ This is just my personal VIM Cheat Sheet
 
 [^help]: http://vim.wikia.com/wiki/Help
 
+## Disable Folding
+
+`:set nofoldenable` in command mode, or add `set nofoldenable` to your `.vimrc`
+
 ## Add new lines
 
 `o` `N o` open a new line below the current line, append text (N times)  
