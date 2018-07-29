@@ -10,7 +10,7 @@ My [config](https://gist.github.com/Paraidomat/ffd53cc64a4edcb7bf4459962147c322)
 Type|Item|Price
 :----|:----|:----
 **CPU** | [AMD - Ryzen 5 2600 3.4GHz 6-Core Processor](https://de.pcpartpicker.com/product/jLF48d/amd-ryzen-5-2600-34ghz-6-core-processor-yd2600bbafbox) | €154.90 @ Amazon Deutschland 
-**CPU Cooler** | [Alpenföhn - BEN NEVIS 56.0 CFM CPU Cooler](https://de.pcpartpicker.com/product/kPDzK8/alpenfohn-ben-nevis-560-cfm-cpu-cooler-84000000119) | €24.90 @ Caseking 
+**CPU Cooler** | Alpenföhn - BEN NEVIS ADVANCED(!) | foo 
 **Motherboard** | [Gigabyte - X470 AORUS ULTRA GAMING ATX AM4 Motherboard](https://de.pcpartpicker.com/product/TWzkcf/gigabyte-x470-aorus-ultra-gaming-atx-am4-motherboard-x470-aorus-ultra-gaming) | €141.99 @ Amazon Deutschland 
 **Memory** | [G.Skill - Ripjaws V Series 16GB (2 x 8GB) DDR4-3200 Memory](https://de.pcpartpicker.com/product/Nqp323/gskill-memory-f43200c16d16gvrb) |-
  | *Prices include shipping, taxes, rebates, and discounts* |
