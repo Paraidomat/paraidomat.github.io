@@ -20,6 +20,7 @@
   ----
 
 [VIM Cheats](vimcheats.md)
+[Gaming Stuff](gaming.md)
 
 
 
