@@ -11,14 +11,13 @@
   -- (Read: http://dynalon.github.io/mdwiki/#!customizing.md#Theme_chooser)
   -->
 
-[gimmick:theme](spacelab)
+[gimmick:theme](slate)
 [Home](index.md)
 [Networking Stuff]()
 
   * # General
   * [GNS3 in AWS](AWS_GNS3_getting_started.md)
   * [Today I learned](til.md)
-  <!-- ---- -->
 
 [VIM Cheats](vimcheats.md)
 [Gaming Stuff](gaming.md)
