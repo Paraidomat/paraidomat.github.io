@@ -18,6 +18,7 @@
   * # General
   * [GNS3 in AWS](AWS_GNS3_getting_started.md)
   * [Questions](findout.md)
+  * [Answers](til.md)
   ----
 
 [VIM Cheats](vimcheats.md)
