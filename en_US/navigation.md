@@ -11,7 +11,7 @@
   -- (Read: http://dynalon.github.io/mdwiki/#!customizing.md#Theme_chooser)
   -->
 
-[gimmick:theme](slate)
+[gimmick:theme](readable)
 [Home](index.md)
 [Networking Stuff]()
 
