@@ -45,6 +45,22 @@ You can use `**` in the file pattern to search recursively. For example, to sear
 :vimgrep /dostuff()/j ../**/*.c
 ```
 
+## Reuse something that you wanted to replace
+
+Example Text:
+
+```
+foo bara blupp bla blupp barb foo
+```
+
+Comannds:
+
+| Command | Result |
+| ------- | ------ |
+| `.s/.*\(bar\w\).*/\1/` | `barb` |
+| `.s/.*\(bar\w\).*\(bar\w\).*/\1/` | `bara` |
+| `.s/.*\(bar\w\).*\(bar\w\).*/\2/` | `barb` |
+
 ## How to avoid closing a complete Browser Tab when using `Ctrl-w`
 
 Impossibru
