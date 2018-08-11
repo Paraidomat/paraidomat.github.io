@@ -20,6 +20,7 @@
   * [Today I learned](til.md)
 
 [VIM Cheats](vimcheats.md)
+[Coding](coding.md)
 [Gaming Stuff](gaming.md)
 
 
