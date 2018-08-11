@@ -35,6 +35,32 @@ The advantage of the command-line window is that you can use all Vim's editing p
 Press Enter to execute the current line (and close the command-line window); or
 Press Ctrl-c twice to close the command-line window (cancel).
 
+## Search inside files with `:vimgrep`
+
+### Recursive Search
+
+You can use `**` in the file pattern to search recursively. For example, to search for all lines containing "dostuff()" in all .c files in the parent directory and all its subdirectories, use:
+
+```
+:vimgrep /dostuff()/j ../**/*.c
+```
+
+## Reuse something that you wanted to replace
+
+Example Text:
+
+```
+foo bara blupp bla blupp barb foo
+```
+
+Comannds:
+
+| Command | Result |
+| ------- | ------ |
+| `.s/.*\(bar\w\).*/\1/` | `barb` |
+| `.s/.*\(bar\w\).*\(bar\w\).*/\1/` | `bara` |
+| `.s/.*\(bar\w\).*\(bar\w\).*/\2/` | `barb` |
+
 ## How to avoid closing a complete Browser Tab when using `Ctrl-w`
 
 Impossibru
