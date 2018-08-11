@@ -16,3 +16,40 @@ No, it doesn't, even if `soft reconfiguration inbound` is configured.
 ## `tcpdump` on F5
 
 - https://support.f5.com/csp/article/K13637
+
+## BGP States
+
+1. Idle State
+   - Initializes TCP connection
+   - Listens for a TCP initialization from the neighbor
+   - Changes to `Connect` state
+1. Connect State
+   - BGP process is waiting for TCP connection to be completed.
+   - If TCP connection successful:
+     - Completes initialization
+     - Sends `Open` message and transitions to `OpenSent` State
+   - Tansitions to `Active` state, if TCP connection is unsuccessful 
+1. Active State
+   - Trying to initiate TCP connection
+   - If TCP connection initialized send `Open` message and transition to `OpenSent` state
+   - If ConnectRetry timer expires go back to `Connect` state
+   - If neighbor tries to establish TCP session with unexpected IP, ConnectRetry timer is 
+     reset, connection is refused and local process stays in `Active` state
+1. OpenSent State
+   - `Open` message has been sent, BGP is waiting to hear an `Open` message from its neighbor
+   - When `Open` message has been received all fields are checked
+     - [Fields](https://tools.ietf.org/html/rfc4271#page-13)
+     - Should an error occur a `Notification` message is sent and state transitions to `Idle`
+     - If nor errors occur a `Keepalive` message is sent
+     - Hold time will be negotiated to the smaller value
+     - Connection is identified as external or internal BGP by AS number
+     - State changes to `OpenConfirm`
+1. OpenConfirm State
+   - process waits for a `Keepalive` or `Notification` message.
+     - If `Keepalive`: transition to `Established`
+     - If `Notification` or TCP disconnect: transition to `Idle`
+1. Established State
+   - BGP connection fully established
+   - peers can exchange `Update`, `Keepalive`, and `Notification` messages.
+     - `Update` and `Keepalive` reset Hold Timer
+     - `Notification` state transitions to `Idle`
