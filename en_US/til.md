@@ -72,5 +72,3 @@ No, it doesn't, even if `soft reconfiguration inbound` is configured.
 > the network, so that most of the network segment' bandwidth is conserved.
 
 [Source](https://gtacknowledge.extremenetworks.com/articles/Q_A/What-are-the-differences-between-sparse-mode-and-dense-mode-routing)
-
-- PIM-DM is based on a 
