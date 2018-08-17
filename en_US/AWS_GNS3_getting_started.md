@@ -37,14 +37,14 @@ After you have successfully created your account you can start your first Amazon
    * Set a useful description
    * Add another rule with the following data:
      
-     | Type            | Protocol | Port Range | Source    | Description |
-     | --------------- | -------- | ---------- | --------- | ----------- |
-     | Custom TCP Port | TCP      | 3080       | 0.0.0.0/0 | GNS3 API    |
-     
-   Attention: Please note that this opens this server instance to the "big bad internet".
-   You should change these rules to your need to be secure.
+| Type            | Protocol | Port Range | Source    | Description |
+| --------------- | -------- | ---------- | --------- | ----------- |
+| Custom TCP Port | TCP      | 3080       | 0.0.0.0/0 | GNS3 API    |
+
+Attention: Please note that this opens this server instance to the "big bad internet".
+You should change these rules to your need to be secure.
    
-   Click on `Review and launch`
+   * Click on `Review and launch`
 8. Click on `Launch` in the bottom right corner.
 9. Let the Wizard create a new SSH key pair and give it a useful name. 
    * After you've set the name click on the `Download key pair`.
@@ -97,10 +97,10 @@ You will notice that the `gns3server` is quite... chatty? If you do not want to 
 5. Untick the `Enable local server` checkbox.
 6. Add the following data to the form:
    
-   > | Field Name | Data |
-   > | ---------- | ---- |
-   > | Host | `ec2-XXX-XXX-XXX-XXX.compute-X.amazonaws.com` |
-   > | Port | `3080 TCP` |
+| Field Name | Data |
+| ---------- | ---- |
+| Host | `ec2-XXX-XXX-XXX-XXX.compute-X.amazonaws.com` |
+| Port | `3080 TCP` |
    
 7. Select `Apply`
 8. You should see that the client connects to the server.
