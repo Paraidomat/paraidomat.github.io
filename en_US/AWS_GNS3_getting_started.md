@@ -26,16 +26,16 @@ When you receive the mail that notifies you of your account activation we finall
 
 After you have successfully created your account you can start your first Amazon EC2 instance. In order to do that you need to go through the following steps:
 
-1. Log in to your Amazon AWS account.
-2. Search for the AWS service `EC2` and click on it. You should be redirected to [the EC2 Dashboard](https://console.aws.amazon.com/ec2/v2).
-3. Click on the blue `Launch Instance` button. You should now see the `Instance Wizard`.
-4. Choose the Free tier eligable `Ubuntu Server 16.04 LTS (HVM)`
-5. Now we choose the Free tier eligable `t2.micro` Server, which is enough to get GNS3 up and running. As an added bonus the installation will cost you nothing.
-6. Click on the `6. Configure Security Group` button in the navigation bar to the top.
-7. Choose `Create a *new* security group`
-   * Set the Security group name to something like `GNS3`
-   * Set a useful description
-   * Add another rule with the following data:
+- Log in to your Amazon AWS account.
+- Search for the AWS service `EC2` and click on it. You should be redirected to [the EC2 Dashboard](https://console.aws.amazon.com/ec2/v2).
+- Click on the blue `Launch Instance` button. You should now see the `Instance Wizard`.
+- Choose the Free tier eligable `Ubuntu Server 16.04 LTS (HVM)`
+- Now we choose the Free tier eligable `t2.micro` Server, which is enough to get GNS3 up and running. As an added bonus the installation will cost you nothing.
+- Click on the `6. Configure Security Group` button in the navigation bar to the top.
+- Choose `Create a *new* security group`
+  * Set the Security group name to something like `GNS3`
+  * Set a useful description
+  * Add another rule with the following data:
      
 | Type            | Protocol | Port Range | Source    | Description |
 | --------------- | -------- | ---------- | --------- | ----------- |
@@ -44,27 +44,27 @@ After you have successfully created your account you can start your first Amazon
 Attention: Please note that this opens this server instance to the "big bad internet".
 You should change these rules to your need to be secure.
    
-   * Click on `Review and launch`
-8. Click on `Launch` in the bottom right corner.
-9. Let the Wizard create a new SSH key pair and give it a useful name. 
+- Click on `Review and launch`
+- Click on `Launch` in the bottom right corner.
+- Let the Wizard create a new SSH key pair and give it a useful name. 
    * After you've set the name click on the `Download key pair`.
    * Take note of Amazons warning regarding key files:
      > You have to download the **private key file** (\*.pem file) before you 
      > can continue. 
      > **Store it in a secure and accessible location.**
      > You will not be able to download the file again after it's created.
-10. On the `Launch Status` page click on the `View Instances` button, once the lauch is complete.
-11. You will be taken back to the EC2 dashboard where you will see your new instance. HOORAY!
+- On the `Launch Status` page click on the `View Instances` button, once the lauch is complete.
+- You will be taken back to the EC2 dashboard where you will see your new instance. HOORAY!
 
 ## Logging in to your Server using SSH
 
-1. Open the EC2 Dashboard and locate your running instance and click on it.
-2. On the bottom you will presented with the Public DNS (IPv4) name of your Instance. It will look something like `ec2-XXX-XXX-XXX-XXX.compute-X.amazonaws.com`.
-3. Use your favorit SSH tool and the key file you've downloaded to log in to your server. 
-   On a Linux OS you will need to use the 
-   `ssh -i $PATH_TO_KEYFILE ubuntu@ec2-XXX-XXX-XXX-XXX.compute-X.amazonaws.com`
-   command.
-   Accept the fingerprint and you should be taken to the servers bash CLI.
+- Open the EC2 Dashboard and locate your running instance and click on it.
+- On the bottom you will presented with the Public DNS (IPv4) name of your Instance. It will look something like `ec2-XXX-XXX-XXX-XXX.compute-X.amazonaws.com`.
+- Use your favorit SSH tool and the key file you've downloaded to log in to your server. 
+  On a Linux OS you will need to use the 
+  `ssh -i $PATH_TO_KEYFILE ubuntu@ec2-XXX-XXX-XXX-XXX.compute-X.amazonaws.com`
+  command.
+  Accept the fingerprint and you should be taken to the servers bash CLI.
 
 ## Install GNS3 Server
 
@@ -90,32 +90,32 @@ You will notice that the `gns3server` is quite... chatty? If you do not want to 
 
 ## Connect your GNS3 Client to the Server
 
-1. Start the GNS3 Server on the EC2 instance.
-2. Start your local GNS3 client. Note that the Client and the Server need to have the same version.
-3. Click on `Edit -> Preferences` (or press `[ctrl]+[shift]+[p]`)
-4. In the navigation on the left hand side click on `Server`
-5. Untick the `Enable local server` checkbox.
-6. Add the following data to the form:
+- Start the GNS3 Server on the EC2 instance.
+- Start your local GNS3 client. Note that the Client and the Server need to have the same version.
+- Click on `Edit -> Preferences` (or press `[ctrl]+[shift]+[p]`)
+- In the navigation on the left hand side click on `Server`
+- Untick the `Enable local server` checkbox.
+- Add the following data to the form:
    
 | Field Name | Data |
 | ---------- | ---- |
 | Host | `ec2-XXX-XXX-XXX-XXX.compute-X.amazonaws.com` |
 | Port | `3080 TCP` |
    
-7. Select `Apply`
-8. You should see that the client connects to the server.
-9. On the right hand side you should see in the `Servers Summary` window, that the internal hostname of the EC2 instance
-   appears.
-10. Add IOS Images using the Preferences and start the machines, as you would with a local GNS3 installation.
+- Select `Apply`
+- You should see that the client connects to the server.
+- On the right hand side you should see in the `Servers Summary` window, that the internal hostname of the EC2 instance
+  appears.
+- Add IOS Images using the Preferences and start the machines, as you would with a local GNS3 installation.
 
 If you will try to console in to your routers or devices you will notice that it won't work. This is due to the fact that the security group doesn't allow access on port 5xxx. You can circumcent this in two ways:
 
-1. Change the security group.
-   * **Pro:** You can just telnet to the Instance on Port 5xxx and you're good to go.
-   * **Con:** The routers/devices will be exposed to the public internet.
-2. Create one or more extra SSH sessions to the EC2 instance and just go with `telnet localhost 5xxx`.
-   * **Pro:** Routers/Devices will not be exposed to the public internet.
-   * **Con:** It's a little cumbersome.
+- Change the security group.
+  * **Pro:** You can just telnet to the Instance on Port 5xxx and you're good to go.
+  * **Con:** The routers/devices will be exposed to the public internet.
+- Create one or more extra SSH sessions to the EC2 instance and just go with `telnet localhost 5xxx`.
+  * **Pro:** Routers/Devices will not be exposed to the public internet.
+  * **Con:** It's a little cumbersome.
    
 ## Okay cool! But what if I need more POWER?!
 
@@ -123,9 +123,9 @@ Okay - That's the whole point of doing all of this, right? **Right!**
 
 So: In order to get more powerful instances you will need to shut down your instance and change the instance type in the EC2 Dashboard. In order to achieve this:
 
-1. Right click on the instance in the dashboard. 
-2. Click on `Instance Settings -> Change Instance Type`
-3. Start the machine and the GNS3 Server 
-4. Done!
+- Right click on the instance in the dashboard. 
+- Click on `Instance Settings -> Change Instance Type`
+- Start the machine and the GNS3 Server 
+- Done!
 
 Should you not be able to change the instance type to something more powerful you should check your instance limits in the EC2 Dashboard. You may need to create a ticket with Amazon AWS Support in order to increase the limits (from 0). At least that what I needed to do. 
