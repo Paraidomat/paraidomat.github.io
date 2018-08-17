@@ -37,9 +37,9 @@ After you have successfully created your account you can start your first Amazon
    * Set a useful description
    * Add another rule with the following data:
      
-     > | Type            | Protocol | Port Range | Source    | Description |
-     > | --------------- | -------- | ---------- | --------- | ----------- |
-     > | Custom TCP Port | TCP      | 3080       | 0.0.0.0/0 | GNS3 API    |
+     | Type            | Protocol | Port Range | Source    | Description |
+     | --------------- | -------- | ---------- | --------- | ----------- |
+     | Custom TCP Port | TCP      | 3080       | 0.0.0.0/0 | GNS3 API    |
      
    Attention: Please note that this opens this server instance to the "big bad internet".
    You should change these rules to your need to be secure.
