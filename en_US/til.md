@@ -73,6 +73,4 @@ No, it doesn't, even if `soft reconfiguration inbound` is configured.
 
 [Source](https://gtacknowledge.extremenetworks.com/articles/Q_A/What-are-the-differences-between-sparse-mode-and-dense-mode-routing)
 
-## JavaScript Stuff
 
-- https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript
