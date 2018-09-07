@@ -13,9 +13,19 @@ No, it doesn't, even if `soft reconfiguration inbound` is configured.
 - [`local-as`](https://www.cisco.com/c/en/us/support/docs/ip/border-gateway-protocol-bgp/13761-39.html)
   - > The local-AS feature allows a router to appear to be a member of a second autonomous system (AS), in addition to its real AS. This feature can only be used for true eBGP peers. You cannot use this feature for two peers that are members of different confederation sub-ASs.
 
-## `tcpdump` on F5
+## F5
+
+### tcpdump
 
 - https://support.f5.com/csp/article/K13637
+
+### Find a virutal-server in all contexts
+
+```
+paraidomat@(testlb)(cfg-sync In Sync)(/S1-green-P:Active)(/Common)(tmos)# cd /
+paraidomat@(testlb)(cfg-sync In Sync)(/S1-green-P:Active)(/)(tmos)# list ltm virtual-address /*/* | grep $ipaddr
+<output ommited>
+```
 
 ## BGP States
 
