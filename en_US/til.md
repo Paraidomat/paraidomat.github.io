@@ -27,6 +27,29 @@ paraidomat@(testlb)(cfg-sync In Sync)(/S1-green-P:Active)(/)(tmos)# list ltm vir
 <output ommited>
 ```
 
+### Get Traffic statistics / Bandwidth usage / State / Availability of VIP
+
+```
+paraidomat@(testlb)(cfg-sync In Sync)(/S1-green-P:Standby)(/FOOBAR)(tmos)# show ltm virtual-address x.y.z.a%1234 
+
+--------------------------------------------------------
+Ltm::Virtual Address: x.y.z.a%1234 (x.y.z.a)
+--------------------------------------------------------
+Status               
+  Availability : offline
+  State        : enabled
+  Reason       : The children virtual server(s) are down
+                     
+Traffic                ClientSide
+  Bits In                  250.5M
+  Bits Out                   5.7G
+  Packets In               398.8K
+  Packets Out              496.6K
+  Current Connections           0
+  Maximum Connections        3.5K
+  Total Connections         59.0M
+```
+
 ## BGP States
 
 1. Idle State
