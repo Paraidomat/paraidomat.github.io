@@ -4,6 +4,12 @@ This is just my personal VIM Cheat Sheet
 
 > All these things are basically just stolen from other webpages. Mostly it's gonna be [vim.wikia.com](http://vim.wikia.com/wiki)
 
+## Highlight current line
+
+`:set cursorline`[^cursorline]
+
+[^cursorline]: http://vim.wikia.com/wiki/Highlight_current_line
+
 ## Get help inside vim
 
 `:help`[^help]
