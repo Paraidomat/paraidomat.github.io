@@ -1,5 +1,9 @@
 # Today I learned
 
+## Cisco IOS XR BFD Configuration Guide
+
+[Config Guide](https://www.cisco.com/c/en/us/td/docs/routers/asr9000/software/asr9k_r4-2/interfaces/configuration/guide/hc42bifw.html)
+
 ## Does `show bgp neighbor x.x.x.x received-routes` show routes received from the same AS?
 
 No, it doesn't, even if `soft reconfiguration inbound` is configured.
