@@ -11,7 +11,7 @@
   -- (Read: http://dynalon.github.io/mdwiki/#!customizing.md#Theme_chooser)
   -->
 
-[gimmick:theme](readable)
+[gimmick:theme](cosmo)
 [Home](index.md)
 [Networking Stuff]()
 
