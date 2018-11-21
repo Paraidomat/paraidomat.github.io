@@ -14,9 +14,6 @@ edit { route-policy | prefix-set | as-path-set | community-set | extcommunit
 
 [Config Guide](https://www.cisco.com/c/en/us/td/docs/routers/asr9000/software/routing/configuration/guide/rcasr9krpl.html#wp1117659)
 
-
-
-
 ## Fortigate
 
 ### Get routing table
@@ -148,4 +145,9 @@ No, it doesn't, even if `soft reconfiguration inbound` is configured.
 
 [Source](https://gtacknowledge.extremenetworks.com/articles/Q_A/What-are-the-differences-between-sparse-mode-and-dense-mode-routing)
 
+## Linux
 
+### Change the behavior of <kbd>Alt + Tab</kbd>
+
+- Go to **Settings > Devices > Keyboard** and search for `Change Window` and set it to <kbd>Alt + Tab</kbd>
+- Maybe change `Change Application` to <kbd>Super + Tab</kbd>
