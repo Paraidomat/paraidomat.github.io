@@ -4,6 +4,10 @@ This is just my personal VIM Cheat Sheet
 
 > All these things are basically just stolen from other webpages. Mostly it's gonna be [vim.wikia.com](http://vim.wikia.com/wiki)
 
+## Count number of matches of a pattern
+
+[Check this](http://vim.wikia.com/wiki/Count_number_of_matches_of_a_pattern)
+
 ## Multiline Edit (like Sublime)
 
 [Check this](https://stackoverflow.com/a/11790464)
