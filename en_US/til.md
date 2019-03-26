@@ -2,6 +2,18 @@
 
 ## Cisco IOS XR 
 
+### Show MPLS Labels for local prefix
+
+```
+show mpls forwarding vrf { vrf } 
+```
+
+### Show BGP forwarding for labels
+
+```
+show bgp vpnv4 unicast vrf { vrf } labels
+```
+
 ### BFD Configuration Guide
 
 [Config Guide](https://www.cisco.com/c/en/us/td/docs/routers/asr9000/software/asr9k_r4-2/interfaces/configuration/guide/hc42bifw.html)
