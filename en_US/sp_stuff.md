@@ -49,3 +49,18 @@
 - Out-of-Sequence delivery
 - Reliability is a special issue not adressed in original IP multicast research
 - Security
+
+### Multicast Application
+
+- 1:many - A single host is sending to two or more (but not all) receivers
+- many:many - Any number of hosts sending to the same multicast group
+  - Hosts are also members of the group (senders are receivers) using BiDir-PIM
+- Other (many:1) - Any number of receivers sending data back to a source (via unicast or multicast)
+
+### Multicast Group Address
+
+- Multicast group addresses are derived from "Class D" (RFC 3171)
+- Source sends stream to the multicast group with destination address = Multicast Group Address
+- Receivers join the multicast group to receive stream from source.
+
+
