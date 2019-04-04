@@ -60,7 +60,11 @@
 ### Multicast Group Address
 
 - Multicast group addresses are derived from "Class D" (RFC 3171)
+  - 224.0.0.0 -> 239.255.255.255
 - Source sends stream to the multicast group with destination address = Multicast Group Address
 - Receivers join the multicast group to receive stream from source.
+- Well-know link-local addresses assigned by IANA
+  - Reserved use of 224.0.0.0 through 224.0.0.255
+  - 
 
 
