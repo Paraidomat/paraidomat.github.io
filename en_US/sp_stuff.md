@@ -65,6 +65,9 @@
 - Receivers join the multicast group to receive stream from source.
 - Well-know link-local addresses assigned by IANA
   - Reserved use of 224.0.0.0 through 224.0.0.255
-  - 
+  - Transient addresses, assigned and reclaimed dynamically
+    - Global range: 224.0.1.0-238.255.255.255
+    - Limited (local) scope: 239.0.0.0/8
+- Is part of a global scope recently used for new protocols and temporary usage
 
 
