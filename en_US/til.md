@@ -34,6 +34,12 @@ edit { route-policy | prefix-set | as-path-set | community-set | extcommunit
 get router info routing-table details {$ip-address}
 ```
 
+### Get bgp info
+
+```
+get router info bgp ?
+```
+
 ### Get interface configuration
 
 ```
