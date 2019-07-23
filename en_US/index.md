@@ -4,7 +4,7 @@
 
 ## Disclaimer
 
-Attention: Please be aware that everything on this page are just some notes for myself that I Want to share with the world. Everything here could potentionally break your stuff or cause financial "damage".
+Attention: Please be aware that everything on this page are just some notes for myself that I want to share with the world. Everything here could potentionally break your stuff or cause financial "damage".
 
 ## Who is Paraidomat?
 
