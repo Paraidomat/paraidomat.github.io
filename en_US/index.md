@@ -9,14 +9,10 @@ Attention: Please be aware that everything on this page are just some notes for 
 ## Who is Paraidomat?
 
 - Networking Engineer
-- Cisco CCNA (R+S, SP), Cisco CCNP (R+S, 1/4 SP)
+- Cisco CCNA (R+S, SP), Cisco CCNP (R+S, 1/2 SP)
 - A guy with a love for:
   - Linux
   - open source software
   - REST APIs, if they are done well ;-)
   - Avionics
   - Rock climbing
-
-## How am I trying to organize my Tasks?
-
-Like [this](https://www.reddit.com/r/vim/comments/3bqwy0/can_you_suggest_good_todo_plugin_for_vim/cspf79p) using [this](https://github.com/Paraidomat/markdown-pandoc-todo)
