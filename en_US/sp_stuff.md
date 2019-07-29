@@ -150,3 +150,66 @@
 - LDP Hellos / Sessions
 - Router shares its labels
 
+## Useful commands
+
+### IOS
+- **show mpls ldp binding**
+  ```
+  R1#sh mpls ldp binding
+    lib entry: 1.1.1.1/32, rev 4
+          local binding:  tag: imp-null
+          remote binding: tsr: 2.2.2.2:0, tag: 19
+          remote binding: tsr: 3.3.3.3:0, tag: 20
+    lib entry: 2.2.2.2/32, rev 8
+          local binding:  tag: 19
+          remote binding: tsr: 2.2.2.2:0, tag: imp-null
+          remote binding: tsr: 3.3.3.3:0, tag: 21
+    lib entry: 3.3.3.3/32, rev 10
+          local binding:  tag: 20
+          remote binding: tsr: 2.2.2.2:0, tag: 21
+          remote binding: tsr: 3.3.3.3:0, tag: imp-null
+    lib entry: 192.168.12.0/24, rev 2
+          local binding:  tag: imp-null
+          remote binding: tsr: 2.2.2.2:0, tag: imp-null
+          remote binding: tsr: 3.3.3.3:0, tag: 19
+    lib entry: 192.168.13.0/24, rev 6
+          local binding:  tag: imp-null
+          remote binding: tsr: 2.2.2.2:0, tag: 20
+          remote binding: tsr: 3.3.3.3:0, tag: imp-null
+    lib entry: 192.168.23.0/24, rev 12
+          local binding:  tag: 21
+          remote binding: tsr: 2.2.2.2:0, tag: imp-null
+          remote binding: tsr: 3.3.3.3:0, tag: imp-null
+  ```
+### IOS-XR
+
+- **show mpls ldp binding**
+  ```
+  RP/0/0/CPU0:router# show mpls ldp bindings
+    5.41.0.0/16 , rev 4
+            local binding: label:IMP-NULL
+            No remote bindings
+    5.43.9.98/32 , rev 6
+            local binding: label:IMP-NULL
+            No remote bindings
+    10.10.2.0/24 , rev 12
+            local binding: label:IMP-NULL
+            remote bindings :
+                lsr:10.255.255.255:0, label:16
+                lsr:10.256.256.256:0, label:IMP-NULL
+    10.10.3.0/24 , rev 10
+            local binding: label:IMP-NULL
+            remote bindings :
+                lsr:10.255.255.255:0, label:IMP-NULL
+                lsr:10.256.256.256:0, label:22
+    22.22.22.22/32 , rev 14
+            local binding: label:16
+            remote bindings :
+                lsr:10.255.255.255:0, label:17
+                lsr:10.256.256.256:0, label:IMP-NULL
+    33.33.33.33/32 , rev 2
+            local binding: label:IMP-NULL
+            remote bindings :
+                lsr:10.255.255.255:0, label:18
+                lsr:10.256.256.256:0, label:23
+  ```
