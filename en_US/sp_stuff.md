@@ -70,7 +70,7 @@
     - Limited (local) scope: 239.0.0.0/8
 - Is part of a global scope recently used for new protocols and temporary usage
 
-# LDP Introduction
+# MPLS
 
 ## Prerequisits
 
@@ -213,3 +213,12 @@
                 lsr:10.255.255.255:0, label:18
                 lsr:10.256.256.256:0, label:23
   ```
+
+## LSP Path Selection
+
+- Path to network x:
+  - Who are my LDP neighbors?
+  - Do they advertise a label for network x?
+  - Who owns next hop IPv4 for Network x?
+  - Choose that neighbor for LSP to X
+
