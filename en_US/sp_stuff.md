@@ -228,3 +228,21 @@
 - Look at FIB: `show ip route`
 - Look at LIB: `show mpls ldp bindings`
 - Look at LFIB: `show mpls forwarding-table`
+
+## Manipulating Transport & Router ID
+
+- Neighbors will connect to the transport address
+
+### LDP Router-ID
+
+1. Configured
+2. Highest IP on Loopback
+3. Highest IP on Interface
+
+### Transport Address
+
+1. Router ID
+2. Configured
+
+
+
