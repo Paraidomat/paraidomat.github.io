@@ -222,3 +222,9 @@
   - Who owns next hop IPv4 for Network x?
   - Choose that neighbor for LSP to X
 
+## RIB, FIB, LIB, LFIB
+
+- Look at OSPF RIB: `show ip ospf 1 rib`
+- Look at FIB: `show ip route`
+- Look at LIB: `show mpls ldp bindings`
+- Look at LFIB: `show mpls forwarding-table`
