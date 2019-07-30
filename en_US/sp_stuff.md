@@ -239,10 +239,33 @@
 2. Highest IP on Loopback
 3. Highest IP on Interface
 
+- Get current Router-ID
+  ```
+  Router# show mpls ldp discovery detail
+    Local LDP Identifier:
+      3.3.3.3:0   ! <--- This is the LDP Router ID
+                  !      Zero represents, that "system wide label space" is used.
+      Discovery Sources:
+      Interfaces:
+        <omitted>
+  ```
+- Change LDP Router ID to different interface
+  ```
+  Router(config)# mpls ldp router-id gig 2/0 force
+  ```
 ### Transport Address
 
-1. Router ID
-2. Configured
+1. Configured
+2. Router ID
+
+- Change transport address
+  ```
+  Router(config)# int g2/0
+  Router(config-if)# mpls ldp discovery transport-address interface
+  Router(config-if)# int g3/0
+  Router(config-if)# mpls ldp discovery transport-address interface
+  ```
+
 
 
 
