@@ -70,9 +70,9 @@
     - Limited (local) scope: 239.0.0.0/8
 - Is part of a global scope recently used for new protocols and temporary usage
 
-# MPLS
+## MPLS
 
-## Prerequisits
+### Prerequisits
 
 - IPv4 and IGP working
 - MPLS / LDP enabled
@@ -150,9 +150,9 @@
 - LDP Hellos / Sessions
 - Router shares its labels
 
-## Useful commands
+### Useful commands
 
-### IOS
+#### IOS
 - **show mpls ldp binding**
   ```
   R1#sh mpls ldp binding
@@ -214,7 +214,7 @@
                 lsr:10.256.256.256:0, label:23
   ```
 
-## LSP Path Selection
+### LSP Path Selection
 
 - Path to network x:
   - Who are my LDP neighbors?
@@ -222,18 +222,18 @@
   - Who owns next hop IPv4 for Network x?
   - Choose that neighbor for LSP to X
 
-## RIB, FIB, LIB, LFIB
+### RIB, FIB, LIB, LFIB
 
 - Look at OSPF RIB: `show ip ospf 1 rib`
 - Look at FIB: `show ip route`
 - Look at LIB: `show mpls ldp bindings`
 - Look at LFIB: `show mpls forwarding-table`
 
-## Manipulating Transport & Router ID
+### Manipulating Transport & Router ID
 
 - Neighbors will connect to the transport address
 
-### LDP Router-ID
+#### LDP Router-ID
 
 1. Configured
 2. Highest IP on Loopback
@@ -253,7 +253,7 @@
   ```
   Router(config)# mpls ldp router-id gig 2/0 force
   ```
-### Transport Address
+#### Transport Address
 
 1. Configured
 2. Router ID
