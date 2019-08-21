@@ -4,6 +4,10 @@ This is just my personal VIM Cheat Sheet
 
 > All these things are basically just stolen from other webpages. Mostly it's gonna be [vim.wikia.com](http://vim.wikia.com/wiki)
 
+## Sort lines 
+
+[Check this](https://vim.fandom.com/wiki/Sort_lines)
+
 ## Count number of matches of a pattern
 
 [Check this](http://vim.wikia.com/wiki/Count_number_of_matches_of_a_pattern)
