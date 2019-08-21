@@ -81,4 +81,4 @@ Comannds:
 
 ## How to avoid closing a complete Browser Tab when using `Ctrl-w`
 
-Impossibru
+<iframe src="https://giphy.com/embed/lKrrumbdd7LY4" width="480" height="272" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/might-trollface-lKrrumbdd7LY4">via GIPHY</a></p>
