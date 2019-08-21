@@ -19,7 +19,6 @@
   * [GNS3 in AWS](AWS_GNS3_getting_started.md)
   * [Today I learned](til.md)
   * [SP Stuff](sp_stuff.md)
-  * [LDP Stuff](sp_stuff.md#LDP_Introduction)
 
 [VIM Cheats](vimcheats.md)
 [Coding](coding.md)
