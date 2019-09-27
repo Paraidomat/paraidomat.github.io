@@ -268,9 +268,7 @@
 
 ## QoS 
 
-### Components
-
-#### QoS Mechanisms
+### Mechanisms
 
 - **Classification** of traffic
   - Supported by a class-oriented QoS mechanism using a `class-map`
@@ -314,3 +312,65 @@
   - Typically done outbound on the customer side 
   - Instead of dropping the packets, the packets will be slowed down
   - Queues packets when a predefined limit is reached
+
+### Implementation
+
+- Methods for implementing QoS
+  - CLI can be used to individually configure QoS policy on each interface.
+  - Cisco AutoQoS (VoIP or Enterprise) is a best-practice QoS configuration that 
+    automatically generates QoS commands.
+  - MQC allows the creation of modular QoS policies and attachment of these policies on the interface
+  - CiscoWorks QPM (QoS Policy Manager) = tools that allows a network administrator to create, control,
+    and monitor QoS policies.
+
+- MQC to implement QoS
+  - Predominant methodology on IOS, -XE, -XR
+    - Great scalability
+    - Uniform CLI structure
+    - seperates classification engine from the policy
+    - Steps to configure:
+      - Define **traffic classes** using `class-map` command.
+      - Define **policies** for traffic classes using `policy-map` command.
+      - Apply **service policy** on interface (inbound or outbound) using `service-policy` command.
+  - Applying one policy per direction can be used on an interface.
+  - One policy can be applied on multiple interface:
+    ```
+    interface Gi0/0/1/9
+     service-policy input POLICY1
+    interface Gi0/0/1/7
+     service-policy input POLICY2
+    interface Gi0/0/1/8
+     service-policy input POLICY1
+    interface Gi0/0/1/6
+     service-policy input POLICY3
+    ```
+
+- QoS requirements in the Service Provider
+  - SPs must provide QoS provisioning within their MPLS networks.
+  - Different actions are based on the type of device (PE- or P-Router)
+  - Marking, policing, and shaping should be done at the edges of the 
+    SP network.
+  - Queuing and dropping are done in the core, based on packet marking.
+
+- The Service Provider Trust Boundary
+  - Seperates the enterprise and SP QoS domains
+  - There are different QoS actions at ingress or egress trust boundaries
+
+- The QoS Requirements on PE Routers
+  - All classification, marking, shaping, and policing should be done at the PE router.
+  - Input Policy (classification, marking, and policing) are typically done on the PE.
+  - Output policy includes queuing, dropping, and shaping.
+
+- The QoS Requirements on P Routers
+  - P Routers are used to provide high-speed packet transport.
+  - Queuing and dropping are done in the core, based on packet marking done at the edge.
+  - There are two methods for QoS design:
+    - Best effort with overprovisioning (expensive)
+    - DiffServ backbone (commonly used)
+
+- Hierarchical QoS policies
+  - Specifies QoS behavior at different policy levels
+  - Provides a high degree of granularity in traffic management
+  - Uses the `service-policy` command to apply policy to another policy and 
+    a policy to an interface.
+  - Applies a child policy to a class of parent policy. 
