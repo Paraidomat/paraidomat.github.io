@@ -266,7 +266,51 @@
   Router(config-if)# mpls ldp discovery transport-address interface
   ```
 
+## QoS 
 
+### Components
 
+#### QoS Mechanisms
 
+- **Classification** of traffic
+  - Supported by a class-oriented QoS mechanism using a `class-map`
+  - Classification is the identifying and splitting of traffic into different classes.
+  - Traffic can be classed by various means, including DSCP.
+    - DSCP: 6 Bits in IP header aaadd0 
+      - aaa = Assured Forwarding
+      - dd = Drop Probability
+  - Modular QoS CLI (MQC) allows classification to be implemented separately from policy.
+    - Typically Class Based Weighted Fair Queuing (=Congestion management)
+    - Use `class-map` to classify the traffic
+    - Use `policy-map` to match the traffic and call the matching statement and do something with it.
+      - Something = Queuing / Shaping / Policing / Prioritization technique.
 
+- **Marking** of traffic
+  - Used to mark packets based on classification
+  - Marking (or coloring), marks each packet as member of a network class so
+    that the packet cann be quickly recognized throughout the rest of the network.
+
+- **Congestion management** 
+  - Prioritize the transmission of packets with a queuing mechanism 
+  - Uses the marking on each packet to determine in which queue to place packets.
+  - Uses sophisticated queuing technologies, such as Weighted Fair Queuing (WFQ) and 
+    Low Latency Queuing (LLQ), to ensure that time-sensitive packets (such as voice) are transmitted first.
+
+- **Congestion avoidance**
+  - Used to drop packets early to avoid congestion later in the network
+  - Randomly drops packets from selected queues when previously defined limits are reached.
+  - Prevents bottlenecks downstream in the network.
+  - Technologies include Random Early Detection (RED) and Weighted Random Early Detection (WRED)
+    - RED just drops random packets
+    - WRED looks at the classification of the traffic and will drop ftp over voice.
+
+- **Policing**
+  - Used to enforce a __rate limit__ by **dropping or marking** down packets (= increase drop probability)
+  - Typically done inbound on the provider side
+  - Drops packets or marks packets when a predefined limit is reached
+
+- **Shaping**
+  - Enforce a rate limit by **delaying packets**, using buffers
+  - Typically done outbound on the customer side 
+  - Instead of dropping the packets, the packets will be slowed down
+  - Queues packets when a predefined limit is reached
