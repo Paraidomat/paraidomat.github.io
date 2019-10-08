@@ -374,3 +374,139 @@
   - Uses the `service-policy` command to apply policy to another policy and 
     a policy to an interface.
   - Applies a child policy to a class of parent policy. 
+
+### Classification and Marking
+
+#### Classification and Marking Concepts
+
+- Classification:
+  - Identifying and categorizing traffic into different classes
+  - Without classification, all packets are treated the same
+  - Should be performed close to the network edge
+  
+- Marking:
+  - "Coloring" packet using traffic descriptors.
+  - Easily distinguish the marked packet belonging to a specific class
+  - Commonly used markers: CoS (Class of Service), DSCP (Differentiated Services CodePoint), MPLS EXP (Experimental) Bits. 
+  - Ethernet 802.1Q CoS define three bits of priority, allowing for eight different leves of priority (0-7)
+    - Class 6 and 7 are reserved for Control Plane
+    - Class 0 and 1 are reserved for Scavenger / Best Effort
+    - Class 2 and 3 **usually** is Premium (SQL / Web / anything that has higher priority over scavenger traffic)
+    - Class 4 and 5 **usually** is Priority (VoIP / Video)
+    
+- Classification / Marking in Data Link Layer
+  - Ethernet 802.1Q CoS
+  - Cisco ISL CoS
+  - Frame Relay discard eligible bit (DE)
+  - ATM cell loss priority (CLP)
+  - MPLS EXP
+  
+- Classification / Marking in Network Layer
+  - IP precedence: three most significant bits of the ToS byte
+    - ToS (L3) and Class of Service (L2) map one to one.
+  - DSCP: six most significant bits of ToS byte
+  - DSCP is backward-compatible with IP precedence.
+  
+- QoS Traffic Models
+  - Logical grouping of packets that are to receive the same level of applied quality.
+  - QoS service class can be:
+    - Single user (MAC address, IP address)
+    - Specific customer or set of customers
+    - Specific application or set of applications.
+    
+#### RFC 4595
+
+```
+    -----------------------------------------------------------------
+   | Application |    Service    | Signaled |  Flow     |   G.1010   |
+   |  Categories |     Class     |          | Behavior  |   Rating   |
+   |-------------+---------------+----------+-----------+------------|
+   | Application |   Signaling   |   Not    | Inelastic | Responsive |
+   |   Control   |               |applicable|           |            |
+   |-------------+---------------+----------+-----------+------------|
+   |             |   Telephony   |   Yes    | Inelastic | Interactive|
+   |             |---------------+----------+-----------+------------|
+   |             |   Real-Time   |   Yes    | Inelastic | Interactive|
+   |             |  Interactive  |          |           |            |
+   |             |---------------+----------+-----------+------------|
+   |    Media-   |   Multimedia  |   Yes    |    Rate   | Interactive|
+   |   Oriented  |  Conferencing |          |  Adaptive |            |
+   |             |---------------+----------+-----------+------------|
+   |             |Broadcast Video|   Yes    | Inelastic | Responsive |
+   |             |---------------+----------+-----------+------------|
+   |             |  Multimedia   |   Yes    |  Elastic  |   Timely   |
+   |             |   Streaming   |          |           |            |
+   |-------------+---------------+----------+-----------+------------|
+   |             |  Low-Latency  |    No    |  Elastic  | Responsive |
+   |             |     Data      |          |           |            |
+   |             |---------------+----------+-----------+------------|
+   |   Data      |High-Throughput|    No    |  Elastic  |   Timely   |
+   |             |    Data       |          |           |            |
+   |             |---------------+----------+-----------+------------|
+   |             | Low-Priority  |    No    |  Elastic  |Non-critical|
+   |             |    Data       |          |           |            |
+   |-------------+---------------+----------+-----------+------------|
+   | Best Effort |   Standard    |    Not Specified     |Non-critical|
+    -----------------------------------------------------------------
+
+           Figure 1. User/Subscriber Service Classes Grouping
+```
+
+```
+    -------------------------------------------------------------------
+   |Service Class  |                              |    Tolerance to    |
+   |    Name       |  Traffic Characteristics     | Loss |Delay |Jitter|
+   |===============+==============================+======+======+======|
+   |   Network     |Variable size packets, mostly |      |      |      |
+   |   Control     |inelastic short messages, but |  Low |  Low | Yes  |
+   |               | traffic can also burst (BGP) |      |      |      |
+   |---------------+------------------------------+------+------+------|
+   |               | Fixed-size small packets,    | Very | Very | Very |
+   |  Telephony    | constant emission rate,      |  Low |  Low |  Low |
+   |               | inelastic and low-rate flows |      |      |      |
+   |---------------+------------------------------+------+------+------|
+   |   Signaling   | Variable size packets, some  | Low  | Low  |  Yes |
+   |               | what bursty short-lived flows|      |      |      |
+   |---------------+------------------------------+------+------+------|
+   |  Multimedia   | Variable size packets,       | Low  | Very |      |
+   | Conferencing  | constant transmit interval,  |  -   | Low  | Low  |
+   |               |rate adaptive, reacts to loss |Medium|      |      |
+   |---------------+------------------------------+------+------+------|
+   |   Real-Time   | RTP/UDP streams, inelastic,  | Low  | Very | Low  |
+   |  Interactive  | mostly variable rate         |      | Low  |      |
+   |---------------+------------------------------+------+------+------|
+   |  Multimedia   |  Variable size packets,      |Low - |Medium|  Yes |
+   |   Streaming   | elastic with variable rate   |Medium|      |      |
+   |---------------+------------------------------+------+------+------|
+   |   Broadcast   | Constant and variable rate,  | Very |Medium|  Low |
+   |     Video     | inelastic, non-bursty flows  |  Low |      |      |
+   |---------------+------------------------------+------+------+------|
+   |  Low-Latency  | Variable rate, bursty short- | Low  |Low - |  Yes |
+   |      Data     |  lived elastic flows         |      |Medium|      |
+   |---------------+------------------------------+------+------+------|
+   |      OAM      |  Variable size packets,      | Low  |Medium|  Yes |
+   |               |  elastic & inelastic flows   |      |      |      |
+   |---------------+------------------------------+------+------+------|
+   |High-Throughput| Variable rate, bursty long-  | Low  |Medium|  Yes |
+   |      Data     |   lived elastic flows        |      |- High|      |
+   |---------------+------------------------------+------+------+------|
+   |   Standard    | A bit of everything          |  Not Specified     |
+   |---------------+------------------------------+------+------+------|
+   | Low-Priority  | Non-real-time and elastic    | High | High | Yes  |
+   |      Data     |                              |      |      |      |
+    -------------------------------------------------------------------
+
+               Figure 2. Service Class Characteristics
+```
+
+
+#### Trust boundaries in Enterprise and Service Provider
+
+- Network edge at which packets are trusted or not
+  - Packets are treated differently depending on whether they are confined within boundary.
+  - Where should classification and marking take place?
+  - Were to enforce the trust boundary?
+    - Should be set as close as possible to the source.
+  - Trust Boundary exists from perspective of:
+    - Enterprise
+    - Service Provider
