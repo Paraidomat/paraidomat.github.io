@@ -203,6 +203,18 @@
   
 ## Describe IPv6 Flow Label
 
+- Similar to the type of service (ToS) field in the IPv4 header, the traffic class field (8 bits) is available for use by originating nodes and/or forwarding routers to identify and distinguish between different classes or priorities of IPv6 packets.
+- The traffic class field may be used to set specific precedence or differentiated services code point(DSCP) values.
+  - Thesevalues are used in the exact same way as in IPv4.
+
+> The 20-bit Flow Label field in the IPv6 header [IPv6] is used by a
+> source to label packets of a flow.  A Flow Label of zero is used to
+> indicate packets not part of any flow.  Packet classifiers use the
+> triplet of Flow Label, Source Address, and Destination Address fields
+> to identify which flow a particular packet belongs to.  Packets are
+> processed in a flow-specific manner by the nodes that have been set
+> up with flow-specific state.
+
 ## Describe Trust Boundaries in enterprise and SP Environments
 
 - The Service Provider Trust Boundary
@@ -290,7 +302,32 @@
   - There are two methods for QoS design:
     - Best effort with overprovisioning (expensive)
     - DiffServ backbone (commonly used)
+    
+## Implement classification and marking in an inter-domain network using QPPB on Cisco IOS-XR and IOS-XE
 
+## Implement class-based markings on Cisco IOS-XR and IOS-XE
+
+## Implement QoS pre-classify on tunnel interface on Cisco IOS-XR and IOS-XE
+
+## Implement CB-WFQ on Cisco IOS-XR and IOS-XE
+
+## Implement LLQ on Cisco IOS-XR and IOS-XE
+
+## Implement WRED on Cisco IOS-XR and IOS-XE
+
+## Implement traffic policing on Cisco IOS-XR and IOS-XE
+
+## Implement traffic shaping on Cisco IOS-XR and IOS-XE
+
+## Describe LPTS and hardware rate limiters on Cisco IOS-XR routers
+
+## Describe MPLS EXP bits
+
+## Describe MPLS QoS implementation concepts and models
+
+## Implement MPLS DiffServ tunneling on Cisco IOS-XR and IOS-XE
+
+## Troubleshoot QoS IOS-XR and IOS-XE configuration errors
 
 <!-- Old stuff
 
