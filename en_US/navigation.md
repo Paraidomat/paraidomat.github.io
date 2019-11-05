@@ -18,7 +18,10 @@
   * # General
   * [GNS3 in AWS](AWS_GNS3_getting_started.md)
   * [Today I learned](til.md)
-  * [SP Stuff](sp_stuff.md)
+  * # SP Stuff
+  * [Multicast](sp_stuff/multicast.md)
+  * [MPLS](sp_stuff/mpls.md)
+  * [QoS](sp_stuff/qos.md)
 
 [VIM Cheats](vimcheats.md)
 [Coding](coding.md)
