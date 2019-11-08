@@ -324,6 +324,38 @@
 
 ## Implement class-based markings on Cisco IOS-XR and IOS-XE
 
+- Traffic classification characteristics:
+  - Classification is the identifying and splitting of traffic into different classes.
+  - Traffic can be classed by various means, including DSCP.
+  - MQC allows classification to be implemented spearately from policy.
+  
+Example:
+
+```
+access-list 100 permit ip any any precedence 5
+access-list 100 permit ip any any dscp ef
+
+class-map Class1
+ match access-group 100
+ 
+access-list 101 permit tcp any host 10.1.10.20 range 2000 2002
+access-list 101 permit tcp any host 10.1.10.20 range 11000 11999
+
+class-map Class2
+ match access-group 101
+ 
+policy-map Policy1
+ class Class1
+  priority 100
+ class Class2
+  bandwidth 8
+ class class-default
+  fair-queue
+ 
+ interface GigabitEthernet0/1/0/9
+  service-policy output Policy1
+```
+
 ## Implement QoS pre-classify on tunnel interface on Cisco IOS-XR and IOS-XE
 
 ## Implement CB-WFQ on Cisco IOS-XR and IOS-XE
