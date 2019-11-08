@@ -360,6 +360,85 @@ policy-map Policy1
 
 ## Implement CB-WFQ on Cisco IOS-XR and IOS-XE
 
+Class-Based Weighted Fair Queuing is an extension of WFQ that allows queuing policies that are specific to network requirements.
+
+Characeristics:
+- CBWFQ is a mechanism that is used to guarantee BW to classes
+- CBWFS extends the standard WFQ functionality to provide support for user-defined traffic classes:
+  - Classes are based on user-defined match criteria.
+  - Packets satisfying the match criteria for a class constitute the traffic for that class. 
+- A queue is reserved for each class, and traffic belonging to a class is dierected into that class queue.
+
+- After a class has been defined, one can assign characteristics to it. 
+  - To characterize a class, you can assign the guaranteed BW to it. 
+  - The BW assigned to a class is the minimum bandwidth allocated to the class during congestion.
+  
+- Each Queue has a queue size:
+  - Maximum number of packets that it can hold.
+  - Manimum queue size is platform dependent.
+  - Cisco IOS XR platforms use dynamic thresholds.
+  
+- Classification:
+  - Uses `class-map`s.
+  - After classification, packet enqueued
+  - If the queue limit has been reached, **tail drop** within each class.
+
+### Configuration of CBWFQ
+
+```
+class-map match-any Mission-critical
+ match dscp af21 af22 af23 cs2
+class-map match-any Bulk
+ match dscp af11 af12 af13 cs1
+ 
+policy-map POP-CBWFQ-policy
+ class Mission-critical
+  bandwidth percent 30
+ class Bulk
+  bandwidth percent 40
+ class class-default
+  bandwidth percent 20
+  
+interface GigabitEthernet0/0/0/1
+ service-policy input POP-CBWFQ-policy
+ 
+interface GigabitEthernet0/0/0/2
+ service-policy output POP-CBWFQ-policy
+```
+
+### Configuration of Hierarchical CBWFQ
+
+```
+class-map match-any External
+ match access-group ipv4 External-nets
+!
+class-map match-any Internal
+ match access-group ipv4 Internal-nets
+!
+policy-map cbwfq-child
+ class Internal
+  bandwidth remaining percent 80
+ !
+ class External
+  bandwidth remaining percent 20
+!
+policy-map cbwfq-parent
+ class Mission-critical
+  service-policy cbwfq-child
+  bandwidth percent 30
+ !
+ class Bulk
+  service-policy cbwfq-child
+  bandwidth percent 40
+!
+interface GigabitEthernet0/0/0/1
+ service-policy output cbwfq-parent
+```
+
+### Monitoring CBWFFQ
+
+- `show policy-map interface $interface` displays the configuration of all classes configured for all service policies on the specified interface.
+
 ## Implement LLQ on Cisco IOS-XR and IOS-XE
 
 ## Implement WRED on Cisco IOS-XR and IOS-XE
