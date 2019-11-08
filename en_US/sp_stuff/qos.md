@@ -441,6 +441,56 @@ interface GigabitEthernet0/0/0/1
 
 ## Implement LLQ on Cisco IOS-XR and IOS-XE
 
+- Low Latency Queuing (LLQ) brings strict priority to CBWFQ. 
+  - Allows delay-sensitive data (such as voice) to be dequeued and sent first.
+  - Gives delay sensitive data preferential treatment.
+  
+- Characteristics
+  - Priority queue added to CBWFQ for real-time traffic
+  - High-priority classes are guaranteed:
+    - Low-latency propagation of packets
+    - Bandwidth
+  - Consistent configuration and operation across all media types
+  - Entrance criteria to a class can be defined by any classifier:
+    - Not limited to UDP as with IP RTP (Real-Time Transport Protocol) priority
+    - Defines trust boundary to ensure simple classification and entry to a queue.
+    - 
+  - High-priority classes are also policed when congestion occurs; then they cannot exceed their guaranteed bandwidth.
+  - Lower-priority classes use CBWFQ
+  
+> LLQ is only policed when there is congestion on the link and the software queueing is engaged.
+
+### Configuration Example:
+
+```
+policy-map LLQ-POLICY
+ class VOICE-INTERNAL
+  priority level 1            ! Priority queue has precedence but requires a throttle (policing)
+  police rate percent 5
+  queue-limit 20 ms           ! Default maximum threshold for priority queue is 10ms
+ !
+ class BULK                   ! CBWFQ queue with minimum bandwidth guarantee
+  bandwidth 60
+  queue-limit 50 ms           ! Default maximum threshold for regular queueus is 100 ms
+ !
+ class VOICE-EXTERNAL
+  priority level 1
+  police rate percent 10      ! All traffic with same priority level directed to the same queue.
+ !
+ class VIDEO
+  priority level 2
+  police rate percent 20      ! Level 2 has lower priority than level 1
+ !
+inteface GigabitEthernet0/0/0/1
+ service-policy input LLQ-POLICY
+interface GigabitEthernet0/0/0/2
+ service-policy output LLQ-POLICY
+```
+
+### Monitoring
+
+- `show policy-map interface $interface` displays the configuration of all classes configured for all service policies on the specified interface.
+
 ## Implement WRED on Cisco IOS-XR and IOS-XE
 
 ## Implement traffic policing on Cisco IOS-XR and IOS-XE
