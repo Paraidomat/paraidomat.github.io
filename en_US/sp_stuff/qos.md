@@ -2,6 +2,23 @@
 
 ## Describe the DiffServ and IntServ QoS models
 
+- Three models for implementation of QoS.
+  - Best-effort
+    - No QoS is applied on any packets.
+    - All packets are treated the same way.
+  - IntServ
+    - Based on signaling events from endpoints requesting special treatment for packets that are delivered to a network.
+    - Eplicitly managing network resources.
+    - Uses RSVP-signaling (like MPLS-TE) for resource reservation and connection to admission mechanisms to establish and maintain QoS.
+    - Can severly limit network scalability
+  - DiffServ
+    - provides greatest scalability and flexibility
+    - Network devices recognize traffic classes and provide different levels of QoS to different traffic **classes**
+    - Mechanisms are used without prior signaling
+    - QoS Characeristics are are managed on a hop-by-hop basis using policies that are established independently on each intermediate device.
+    - Is not considered an end-to-end QoS strategy
+    - More Scalable, because thousands of applications can be mapped into a small set of classes.
+
 ## Describe the QoS mechanisms
 
 ### Classification
