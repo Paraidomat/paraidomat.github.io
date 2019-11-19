@@ -272,6 +272,16 @@
     interface Gi0/0/1/6
      service-policy input POLICY3
     ```
+  - MQC QoS commands are identical for IOS and IOS XE.
+  - IOS XR supports a DiffServ architecture, a multiple-service model that can statisfy different QoS requirements.
+  - In IOS XR features are generally disabled by default and must be explicity enabled.
+  - There are some differences in the default syntax values used in MQC.
+    - If you create a traffic class with the `class-map` command ...
+      - ... IOS creates by default a traffic class that must matcch **all** statements under the service class that is defined
+      - ... IOS XR creates a traffic class that matches **any** of the statements under the service class.
+    - Available set of capabilities is different for different types of software.
+
+
 ### Describe hierarchical QoS configurations
 
 - Hierarchical QoS policies
