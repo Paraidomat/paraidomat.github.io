@@ -1,4 +1,4 @@
-
+[gimmick: math]()
 # Fundamentals of QoS
 
 ## Disclaimer
@@ -177,8 +177,216 @@ DP = Drop Probabilty
 
 ## Demystify Weighted RED [1:06:50]
 
-## Select Appropriate Queueing
+### Random Early Detection [1:07:05]
 
-## Explain the "Token Bucket"
+![RED](http://network.jecool.net/wp-content/uploads/2015/03/Capture11.png)
 
-## Configure QoS Using MQC
+- RED does not care about any markings, it just drops packets Randomly
+
+### RED Drop Ranges [1:08:25]
+
+![RED Drop Ranges](http://network.jecool.net/wp-content/uploads/2015/03/Capture12.png)
+
+- In case of WRED it's possible to configure - for a particular marking - 
+  the minimum- and maximum threshold.
+- It's not possible to set the "probability of discard" itself.
+- It's only possible to set the _MPD_ (Mark probability denominator)
+  - Denominator = Bottom Part of a Fraction.
+  - In this example it's set to 5, so the "maximum probability of discard" is
+    1/5 = 20%.
+- Real World Tip: Do not change default values of the thresholds or the MPD, 
+  unless there is a very specific reason to do so.
+
+### WRED Profiles
+
+![WRED Profiles](http://network.jecool.net/wp-content/uploads/2015/03/Capture13.png)
+
+- Cisco enhanced RED to be able to work together with markings and thus
+  different traffic classes.
+- This is where the Drop Probability from the DSCP Values comes into play 
+  again.
+- WRED also helps with the last few dropped packages that occur when the queue
+  is completely full using the _Explicit Congestion Notification_ (ECN).
+  - In the ToS Byte only 6 bits are used. The last to bits are:
+    Bit #7: ECT-Bit (ECN-capable Transport)
+    Bit #8: CE-Bit (Congestion Experienced)
+  - Instead of dropping Packets out of flows randomly the router, the receiving
+    router (the ones whos queue is staring to fill up) is using the ECN feature
+    to ask the sending router to slow the traffic down a little. If the sending 
+    router doesn't slow down voluntarily the receiving router drops the packets
+    and forces a TCP slow start.
+
+## Select Appropriate Queueing [1:14:45]
+
+> CB-WRF vs. LLQ
+
+- Cisco told us to only create 11 classes of traffic. Cisco also already
+  created one class for us. The so called _class-default_ class. So in total
+  there are 12 classes.
+- `class-default` is using FIFO.
+- One alternative to FIFO from the oldern days is the usage of Weighted Fair
+  Queuing. 
+  - With WFQ Flows that are only sending little traffic at a slow rate won't
+    "starve" because of other (maybe more traffic intensive) flows.
+
+### Prioritizing Traffic Types 
+
+> Example
+
+| Traffic classes | Additional Information     |
+| --------------- | -------------------------- |
+| **Priority Queue** | **less than** 3Mbps     |
+| Call signaling  | provide **at least** 1Mbps |
+| Network Control | provide **at least** 1Mbps |
+| Critical Data   | provide **at least** 3Mbps |
+| Bulk Data       | provide **at least** 1Mbps |
+| class-default   | using WFQ                  |
+
+- Without the Priority Queue this basically is Class-Based-Weighted Fair 
+  Queuing.
+- With the Priority Queue the Class-Based-Weighted Fair Queuing becomes
+  Low-Latency Queuing.
+
+## Explain the "Token Bucket" [1:22:10]
+
+- With policing and shaping it's possible to set a maximum bandwidth on 
+  traffic.
+- The "maximum Bandwidth" is described by the _Commited Information Rate_ 
+  (CIR). It is defined as:
+  > The **average** speed over the period of a second. 
+  > $$ CIR = \frac{B_c}{T_c}$$
+  > $$ B_c $$ (Commited Burst) = Number of bits (for shaping) or bytes (for 
+  > policing) that are
+  > deposited in the token bucket during a timing interval.
+  > $$ T_c $$ (Timing Interval) = The Interval at which tokens are deposited in 
+  > the token bucket.
+  
+- So for policing and shaping to work we use the line speed 
+
+## Configure QoS Using MQC [1:29:25]
+
+- Configuring QoS using the MQC is a three step process:
+  1. Configure your classes of service using the `class-map` command. 
+     (Not more than 11).
+  2. The class-maps will be used in a `policy-map`.
+     - The `policy-map` is _where the magic happens_.
+     - The policy-map defines what to do with the traffic that belongs to the
+       classes that are specified. 
+  3. The policy-map will be applied, using a `service-policy` that is usually 
+     used on an interface in the incoming or outgoing direction on an 
+     interface.
+
+### MQC Demo [1:30:30]
+
+#### 1. Define `class-map`s.
+
+```
+class-map match-any EMAIL  ! match any of the following protocols 
+ match protocol pop3       ! using NBAR
+ match protocol imap
+ match protocol exchange
+ match protocol smtp
+class-map VOICE            ! there will only be one protocol
+ match protocol rtp audio  ! only match audio rtp
+class-map match-any WEB
+ match protocol http
+ match protocol secure-http
+class-map SCAVENGER
+ match protocol bittorrent
+```
+
+- Notice, that the `class-default` is implemented by default:
+```
+HQ-ROUTER#show class-map
+ Class Map match-any class-default (id 0)
+  Match any
+  
+<output omitted>
+```
+
+#### 2. Define `policy-map`.
+
+```
+policy-map CYBER-MONDAY
+ class EMAIL                ! inside this is where the magic happens
+  set dscp af13
+  bandwidth 512             ! set minimal amout of bandwidth in kbps
+  random-detect dscp-based  ! turns WRED into DSCP mode
+  random-detect ecn         ! turns on the ECN feature
+ class VOICE
+  priority 256
+ class WEB
+  bandwidth 768
+ class SCAVENGER
+  police 128000             ! set maximum amout of bandwidth in bps(!)
+```
+
+#### 3. Assign to interface using `service-policy`
+
+- Some mechanisms can only be applied outbound / inbound.
+  - Inbound only: Marking
+  - Outbound only: Shaping
+  - Both: Policing
+
+```
+interface gig 0/1
+ service-policy output CYBER-MONDAY
+```
+
+#### Show commands:
+
+```
+show policy-map
+  Policy Map CYBER-MONDAY
+    Class EMAIL
+      set dscp af13
+      bandwidth 512 (kbps)
+       packet-based wred, exponential weight 9
+      random-detect ecn
+      
+      dscp  min-threshold   max-threshold   mark-probability
+      -------------------------------------------------------
+      default (0) -                 -             1/10
+<output omitted>
+```
+
+```
+show policy-map interface Gig 0/1
+GigabitEthernet0/1
+
+ Service-Policy output: CYBER-MONDAY
+ 
+   queue stats for all priority classes:
+     Queuing
+     queue limit 64 packets
+     (queue depth/total drops/no-buffer drops) 0/0/0
+     (pkts output/bytes output) 0/0
+   
+   Class-map: EMAIL (match-any)
+    0 packets, 0 bytes
+    5 minute offered rate 0000 bps, drop rate 0000 bps
+    Match: protocol pop3
+      0 packets, 0 bytes
+      5 minute rate 0 bps
+    <output omitted>
+     Queuing
+     queue limit 64 packets
+     (queue depth/total drops/no-buffer drops) 0/0/0
+     (pkts output/bytes output) 0/0
+    QoS Set
+      dscp af13
+        Packets marked 0
+    bandwidth 512 kbps
+      Exp-weight-constand: 9 (1/512)
+      Mean queue depth: 0 packets
+   <output omitted>
+```
+
+
+
+
+
+
+
+
+
