@@ -27,9 +27,7 @@ Source: https://www.youtube.com/watch?v=S03QnO8uhC0
   - FIFO (First in first out) w/o prioritization
   - Not strict at all. 
 
-## Learn QoS Mechanisms [19:10]
-
-### Common QoS Mechanics [19:10]
+## Common QoS Mechanics [19:10]
 
 - Classification and Marking
   - The Packets should be classified and marked as early as possible (on the 
