@@ -149,6 +149,7 @@ Source: https://www.youtube.com/watch?v=S03QnO8uhC0
 
 DP = Drop Probabilty
 
+```
 +-------+-----------+-----------+-----------+
 | Class | Low DP    | Medium DP | High DP   |
 +=======+===========+===========+===========+
@@ -164,6 +165,7 @@ DP = Drop Probabilty
 | 4     | AF41 (34) | AF42 (36) | AF43 (38) |
 |       | 100010    | 100100    | 100110    |
 +-------+-----------+-----------+-----------+
+```
 
 - If an IP Precedence router receives an Packet with DSCP AF12, it will treat
   it like a packet with IP Precedence = `001` in binary or 1 in decimal.
