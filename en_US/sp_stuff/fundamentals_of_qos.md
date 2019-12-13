@@ -12,8 +12,7 @@ Source: https://www.youtube.com/watch?v=S03QnO8uhC0
 ### Three Categories of QoS [12:15]
 
 - IntServ = Integrated Services
-  - Uses [RSVP (Resource Reservation Protocol)](https://en.wikipedia.org/wiki/
-    Resource_Reservation_Protocol)
+  - Uses RSVP (Resource Reservation Protocol)
   - Also called "Hard QoS" / is very strict)
   - RSVP reserves a specific amout of Bandwidth for the duration of an active 
     session.
@@ -55,8 +54,7 @@ Source: https://www.youtube.com/watch?v=S03QnO8uhC0
         ouput queue is full and tail drop is in effect, packets are dropped 
         until the congestion is eliminated and the queue is no longer full.
       
-      [Source](https://www.cisco.com/c/en/us/td/docs/ios-xml/ios/qos_conavd/
-      configuration/15-s/qos-conavd-15-s-book/qos-conavd-oview.pdf)
+      [Source](https://www.cisco.com/c/en/us/td/docs/ios-xml/ios/qos_conavd/configuration/15-s/qos-conavd-15-s-book/qos-conavd-oview.pdf)
   - Tail drops cause [TCP slow starts](https://blog.stackpath.com/
     tcp-slow-start/), because the the traffic does
     not reach its destinations and therefor achkowlegements will not be 
@@ -64,9 +62,7 @@ Source: https://www.youtube.com/watch?v=S03QnO8uhC0
   - There are different **Congestion Avoidance Mechanisms** that can be used:
     - RED (Random Early Detection)
     - WRED (Weighted Random Early Detection)
-    - See also: [Congestion Avoidance Overview](https://www.cisco.com/c/en/us/
-      td/docs/ios-xml/ios/qos_conavd/configuration/15-s/qos-conavd-15-s-book/
-      qos-conavd-oview.pdf) by Cisco.
+    - See also: [Congestion Avoidance Overview](https://www.cisco.com/c/en/us/td/docs/ios-xml/ios/qos_conavd/configuration/15-s/qos-conavd-15-s-book/qos-conavd-oview.pdf) by Cisco.
   - (W)RED watches the depth of the queue, once the queue is filled over RED's 
     **minimum threshold** it starts to randomly drop some of the packets to 
     avoid tail drop.
