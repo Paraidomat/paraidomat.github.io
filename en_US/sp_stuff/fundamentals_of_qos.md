@@ -12,8 +12,8 @@ Source: https://www.youtube.com/watch?v=S03QnO8uhC0
 ### Three Categories of QoS [12:15]
 
 - IntServ = Integrated Services
-  - Uses [RSVP (Resource Reservation Protocol)]
-    (https://en.wikipedia.org/wiki/Resource_Reservation_Protocol)
+  - Uses [RSVP (Resource Reservation Protocol)](https://en.wikipedia.org/wiki/
+    Resource_Reservation_Protocol)
   - Also called "Hard QoS" / is very strict)
   - RSVP reserves a specific amout of Bandwidth for the duration of an active 
     session.
@@ -57,8 +57,8 @@ Source: https://www.youtube.com/watch?v=S03QnO8uhC0
       
       [Source](https://www.cisco.com/c/en/us/td/docs/ios-xml/ios/qos_conavd/
       configuration/15-s/qos-conavd-15-s-book/qos-conavd-oview.pdf)
-  - Tail drops cause [TCP slow starts]
-    (https://blog.stackpath.com/tcp-slow-start/), because the the traffic does
+  - Tail drops cause [TCP slow starts](https://blog.stackpath.com/
+    tcp-slow-start/), because the the traffic does
     not reach its destinations and therefor achkowlegements will not be 
     received back from the destionations, so the TCP Window size will be reset.
   - There are different **Congestion Avoidance Mechanisms** that can be used:
