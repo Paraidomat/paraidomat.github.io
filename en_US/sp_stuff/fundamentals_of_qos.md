@@ -54,6 +54,7 @@ Source: https://www.youtube.com/watch?v=S03QnO8uhC0
         classes of services. Queues fill during periods of congestion. When the
         ouput queue is full and tail drop is in effect, packets are dropped 
         until the congestion is eliminated and the queue is no longer full.
+      
       [Source](https://www.cisco.com/c/en/us/td/docs/ios-xml/ios/qos_conavd/
       configuration/15-s/qos-conavd-15-s-book/qos-conavd-oview.pdf)
   - Tail drops cause [TCP slow starts]
