@@ -296,6 +296,7 @@ class-map SCAVENGER
 ```
 
 - Notice, that the `class-default` is implemented by default:
+
 ```
 HQ-ROUTER#show class-map
  Class Map match-any class-default (id 0)
@@ -348,9 +349,8 @@ show policy-map
       -------------------------------------------------------
       default (0) -                 -             1/10
 <output omitted>
-```
 
-```
+
 show policy-map interface Gig 0/1
 GigabitEthernet0/1
 
