@@ -503,7 +503,58 @@ interface GigabitEthernet0/0/0/2
 
 ## Implement WRED on Cisco IOS-XR and IOS-XE
 
+### IOS-XR
+
+Source: https://www.cisco.com/c/en/us/td/docs/routers/asr9000/software/asr9k_r5-1/qos/configuration/guide/b_qos_cg51xasr.pdf Page 61/330
+
+> WRED drops packets selectively based on any specified criteria, such das CoS, DSCP, EXP, discard-class, or precedence.
+> WRED used the matching criteria to determine how to treat different types of traffic.
+
+- Configure using the `random-detect` command and different CoS, DSCP, EXP and discard-class values.
+  - Value can be a range or a list of values that are valid for that field.
+- You can also use minimum and maximum queue thresholds to determine the dropping point.
+
+When a packet arrives the following actions occur:
+- If the queue size is less than the minimum queue treshold, the arriving packet is queued.
+- If the queue size is between the minimum queue threshold for that type of traffic and the maximum threshold for the interface, the packet is either dropped or queued, bepending on the packet drop probability for that type of traffic.
+- If the queue size is greater than the maximum threshold, the packet is dropped.
+
+**Restriction:** When configuring `random-detect dscp`, you must configure one of the following commands: `shape average`, `bandwidth`, and `bandwidth remaining`. Only two minimum and maximum thresholds (each with different match criteria) can be configured per class.
+
+See the Source for an example configuration.
+
 ## Implement traffic policing on Cisco IOS-XR and IOS-XE
+
+### IOS-XR:
+
+Source: https://www.cisco.com/c/en/us/td/docs/routers/asr9000/software/asr9k_r5-1/qos/configuration/guide/b_qos_cg51xasr.pdf Page 74/330
+
+> Traffic Policing allows you to control the maximum rate of traffic send or received on an interface and to partition a network into
+> multiple priority levels or class of service (CoS).
+
+- In the most common traffic policing configurations, traffic that confirms to the CIR is sent and traffic that exceeds is sent with a decreased priority or is dropped.
+
+#### Regulation of Traffic using a Single-Rate Policer
+
+- A single-rate, two-action policer provides one token bucket with two actions for each packet:
+  - a conform action
+  - an exceed action
+
+![Token Bucket](https://www.cisco.com/c/dam/en/us/td/i/100001-200000/120001-130000/127001-128000/127091.ps/_jcr_content/renditions/127091.jpg)
+
+- Tc = Time interval between token updates
+- "The Tc token vucket can contain up to the Bc value, which can be a certain number of bytes or a period of time."
+- "If a packet of size B is greater than the Tc token bucket, then the packet exceeds the CIR value and a configured action is performed.
+- "If a packet of size B is less than the Tc token bucket, then the packet confirms and a differend configured action is performed."
+
+#### Regulation of Traffic using a Two-Rate Policer
+
+> The two-rate policer manages the maximum rate of traffic by using two token buckets: the commited token bucket and the peak token bucket.
+> The dual-token bucket algorithem uses user-configured values to determine the maximum rate of traffic allowed on a queue at a given moment.
+> In this way, the two-rate policer can meter traffic at two independent rates: the commited information rate (CIR) and the peak information rate (PIR).
+
+<!-- Continue here: https://www.cisco.com/c/en/us/td/docs/routers/asr9000/software/asr9k_r5-1/qos/configuration/guide/b_qos_cg51xasr/b_qos_cg51xasr_chapter_0100.html#ID430 -->
+
 
 ## Implement traffic shaping on Cisco IOS-XR and IOS-XE
 
