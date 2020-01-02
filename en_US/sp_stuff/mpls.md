@@ -501,6 +501,95 @@ mpls ldp
  igp sync delay 30
 ```
 
+## Traffic Engineering
+
+### Tunneling Modes for MPLS DiffServ
+
+- Tunneling is the ability of QoS to be transparent from one edge of a network
+  to the other edge of the network.
+- A tunnel starts where there is MPLS label imposition.
+- A tunnel ends where there is label disposition.
+
+- There are three ways to forward packets through a network:
+  1. Pipe mode with an explicit NULL LSP
+  2. Short Pipe mode
+  3. Uniform mode
+
+- Pipe mode and Short Pipe mode QoS trasparency. 
+  - With QoS transparency the customer's IP marking in the IP packet is 
+    preserved.
+
+> Note: The only difference between Pipe mode and Short Pipe mode is which PHB
+> is used on the service provider's egress edge router.
+> - In Pipe mode with an explicit NULL LSP, QoS is done on the PE-to-CE link
+>   based on the service provider's PHB markings.
+> - The egress LSR still uses the marking that was used by intermediate LSRs
+
+#### Pipe Mode with an Explicit Null LSP 
+
+- The QoS tunnel goes from the ingress CE router through the PE router to the
+  egress CE router.
+- There is an explicit NULL LSP from the CE router to the PE router. 
+  - The label entry contains an MPLS EXP flield, but does not carry a label 
+    value for forwarding purposes. 
+  - It contains a zero (a null label value) for all packets going to the 
+    ingress PE router.
+- The egress PE router removes the label entry and forwards packets as IP, but 
+  QoS is done on the output interface based on the MPLS EXP field received by
+  the egress PE router.
+- The service provider does not overwrite the IP Precedence value in the 
+  service provider's network.
+
+[Further Reading](https://www.cisco.com/c/en/us/td/docs/ios-xml/ios/mp_te_diffserv/configuration/15-mt/mp-te-diffserv-15-mt-book/mp-diffserv-tun-mode.html#GUID-26B0B6AD-D814-4E4B-94F0-C4CC0FC8E1BB)
+
+
+#### Short Pipe Mode
+
+- The QoS tunnel goes from the ingress PE router to the egress PE router.
+- The egress PE router transmits packets as IP and QoS is done on the output
+  interface based on the IP DSCP or IP Precedence value. 
+- The service provider does not overwrite the DSCP or IP Precedence value
+  in the service provider's network.
+
+[Further Reading](https://www.cisco.com/c/en/us/td/docs/ios-xml/ios/mp_te_diffserv/configuration/15-mt/mp-te-diffserv-15-mt-book/mp-diffserv-tun-mode.html#GUID-78E7DB58-B014-4105-80BF-591E1375E469)
+
+#### Uniform Mode 
+
+- In a label, the MPLS EXP field is not the same as the label value.
+
+- The topmost label contains the following:
+  - Label value, which contains labels and other information, to forward the
+    packet.
+  - MPLS EXP field, which only pertains to the QoS of the packet, not the 
+    route.
+    - The EXP Field value is not advertised. Its value comes from the way that
+      the packet is received.
+
+- In Uniform mode, packets are treated uniformly in the IP and MPLs networks.
+  - IP Precendes and MPLS EXP Values are **always** identical.
+  - Whenever a router changes (or recolors) the PHB of a packet, that change
+    must be propagated to all encapsulation markings.
+  - The propagation is performed by a router only when a PHB is added or
+    exposed due to label imposition or disposition on any router in the 
+    packet's path. 
+  - The color must be reflected everywhere, at all levels.
+  - For example, if a packet's QoS marking is changed in the MPLS network, the 
+    IP QoS marking reflects that change.
+
+- Uniform mode functions as follows:
+  - In both the MPLS-to-MPLS path and the MPLS-to-IP path, the PHBs of the 
+    topmost popped label are copied into the new top label or in the IP DSCP
+    if no label remains.
+  - There can be a maximum of eight PHBs.
+  - If the PHBs are enclosed using more than the three Precedence bits, you 
+    must map DSCP to MPLS at the entry to the MPLS cloud.
+  - When packets leave the MPLS cloud, you must remap from the MPLS EXP value
+    to the DSCP field in the IP header.
+
+
+[Further Reading](https://www.cisco.com/c/en/us/td/docs/ios-xml/ios/mp_te_diffserv/configuration/15-mt/mp-te-diffserv-15-mt-book/mp-diffserv-tun-mode.html#GUID-2758FEF1-9B35-4748-90F6-93ABE8457EC3)
+
+
 
 
 
