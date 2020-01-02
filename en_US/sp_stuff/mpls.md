@@ -646,6 +646,54 @@ mpls ldp
 
 [Further Reading](https://www.cisco.com/c/en/us/td/docs/ios-xml/ios/mp_te_diffserv/configuration/15-mt/mp-te-diffserv-15-mt-book/mp-diffserv-tun-mode.html#GUID-2758FEF1-9B35-4748-90F6-93ABE8457EC3)
 
+### Fast Reroute
+
+[Source](https://www.cisco.com/c/en/us/td/docs/ios-xml/ios/mp_te_path_protect/configuration/xe-3s/mp-te-path-protect-xe-3s-book/mp-te-frr-node-prot.html#GUID-DBA75617-F75C-47BF-88B2-DE11DD11D3CB)
+
+#### Fast Reroute Overview
+
+- FRR is a mechanism for protecting MPLS TE LSPs from link and node failures
+  by locally repairing the LSPs at the point of failure, allowing data to 
+  continue to flow on them while their headend routers attempt to establish
+  new end-to-end LSPs to replace them.
+- FRR locally repairs the protected LSPs by rerouting them over backup 
+  tunnels that bypass failed links or node.
+
+#### Link Protection
+
+- Backup tunnels that bypass only a single link of the LSP's path provide link
+  protection.
+- They protect LSPs if a link along their path fails by rerouting the LSPs to 
+  the next hop (bypassing the failed link).
+- These are referred to as next-hop (NHOP) backup tunnels because they 
+  terminate at the LSP's next hop beyond the point of failure.
+
+![NHOP Backup Tunnel](https://www.cisco.com/c/dam/en/us/td/i/000001-100000/55001-60000/59001-60000/59556.ps/_jcr_content/renditions/59556.jpg)
+
+#### Node Protection
+
+- FRR provides node protection for LSPs. Backup tunnels that bypass next-hop
+  nodes along LSP paths are called next-next-hop (NNHOP) backup tunnels because
+  they terminate at the following the next-hop node of the LSP paths, thereby
+  bypassing the next-hop node.
+- They protect LSPs if a node along their path fails by enabling the nodes 
+  upstream of the failure to reroute the LSPs and their traffic around the 
+  failed node to the next-next hop.
+- FRR supports the use of RSVP Hellos to accelerate the detection of node 
+  failures.
+- NNHOP backup tunnels also proide protection from link failures, because they
+  bypass the failed link and the node.
+
+![NNHOP Backup Tunnel](https://www.cisco.com/c/dam/en/us/td/i/000001-100000/55001-60000/59001-60000/59557.ps/_jcr_content/renditions/59557.jpg)
+
+- If an LSP is using a backup tunnel and something changes so that the LSP is
+  no longer appropriate for the backup tunnel, the LSP is torn down. Such
+  changes are the following:
+  - Backup bandwidth of the backup tunnel is reduced.
+  - Backup bandwidth type of backup tunnel is changed to a type that is 
+    incompatible with the primary LSP.
+  - Primary LSP is modified so that FRR is disabled. (The `no mpls traffic-eng
+    fast-reroute` command is entered.)
 
 
 
