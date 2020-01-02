@@ -346,3 +346,32 @@ mpls ldp
  !
 !
 ```
+
+### Local Label Allocation Control
+
+- By default, LDP allocates labels for all prefixes that are not BGP prefixes.
+- This is acceptable when LDP is used for applications other than L3VPN core
+  transport.
+- When LDP is used to set up L3VPN traffic in the core, it is not efficient
+  or even necessary to allocate and advertise local labels for, potentially, 
+  thousands of IGP prefixes. 
+  - In such a case, LDP is typically required to allocate and advertise local 
+    labels for /32 addresses for the PE routers.
+  - This is accomplished using LDP local label allocation control, where an
+    ACL can be used to limit allocation of local labels to a set of prefixes.
+- Limiting local label allocation provides several benefits, including reduced
+  memory usage requirements, fewer local forwarding updates, and fewer network 
+  peer updates.
+
+> Note: You can configure label allocation using an IP access list to specify
+> a set of prefixes that local labels can allocate and advertise.
+
+#### IOS-XR:
+
+```
+mpls ldp
+ address-family ipv4
+  label local allocate for pfx_acl_1
+  ! 
+ !
+```
