@@ -163,12 +163,30 @@
 
 ## LDP
 
-> LDP performs label distribution in MPLS environments. LDP uses hop-by-hop or dynamic path 
+> LDP performs label distribution in MPLS environments. LDP uses hop-by-hop or dynamic path
 > setup, but does not provide end-to-end switching services. Labels are assigned to routes
 > that are chosen by the underlying IGP routing protocols. The Label Switched Paths (LSPs)
 > that result from the routes, forward labeled traffic across the MPLS backbone to adjacent
 > nodes.
 [Source](https://www.cisco.com/c/en/us/td/docs/routers/asr9000/software/asr9k-r6-2/mpls/configuration/guide/b-mpls-cg-asr9000-62x/b-mpls-cg60x-asr9k_chapter_01010.html#con_1027186)
+
+### LDP Port Numbers
+
+> The UDP port the LDP Hello messages is 646.
+> The TCP port for establishing LDP session connections is 646.
+
+[Source](https://tools.ietf.org/html/rfc5036#section-3.10.1)
+
+### Establishing and Maintaining LDP Sessions
+
+- The exchange of LDP Discovery Hellos between to LSRs triggers LDP session 
+  establishment.
+- Session establishment is a two step process:
+  - Transport connection establishment
+  - Session initialization
+
+[Further Reading](https://tools.ietf.org/html/rfc5036#section-2.5)
+
 
 ### LDP Router-ID
 
