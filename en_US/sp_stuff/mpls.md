@@ -375,3 +375,52 @@ mpls ldp
   ! 
  !
 ```
+
+### Session Protection
+
+- When a link comes up, IP converges earlier and much faster than MPLS LDP and
+  may result in MPLS traffic loss until MPLS convergence.
+- If a link flaps, the LDP session will also flap due to loss of link
+  discovery.
+- LDP session Protection minimizes traffic loss, provides faster convergence,
+  and protects exsisting LDP (link) sessions by means of "parallel" source of 
+  targeted discovery hello.
+- An LDP session is kept alive and nighbor label bindings are maintained when
+  links are down.
+- Upon reestablishment of primarly link adjacencies, MPLS convergence is 
+  expedited as LDP need not relearn the neighbor label bindings.
+
+- LDP Session Protection lets you configure LDP to automatically protect 
+  sessions with all or a given set of peers (as specified by peer-acl).
+- When configured, LDP initiates backup targeted hellos automatically for 
+  neighbors for which primary link adjacencies already exist.
+- These backup targeted hellos maintain LDP sessions when primary link 
+  adjacencies go down.
+
+
+![Session Protection](https://www.cisco.com/c/dam/en/us/td/i/100001-200000/150001-160000/158001-159000/158015.ps/_jcr_content/renditions/158015.jpg)
+- The session protection figure illustrates LDP session protection between 
+  the neighbors R1 and R3. 
+- The primary link adjacency between R1 and R3 is directly connected and the
+  backup targeted adjacency is maintained between R1 and R3. 
+- If the direct link fails, LDP link adjacency is destroyed, but the session
+  is kept up and running using targeted hello adjacency (trough R2). 
+- When the direct link comes back up, there is no change in the LDP session 
+  state and LDP can converge quickly and begin forwarding MPLS traffic.
+
+> Note: When LDP session protection is activated (upon link failure), 
+> protection is maintained for an unlimited period of time if not specified
+> otherwise.
+
+#### IOS-XR
+
+```
+mpls ldp
+  session protection duration 60 for peer_acl_1
+!
+```
+
+
+
+
+
