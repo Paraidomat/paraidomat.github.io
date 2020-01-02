@@ -192,8 +192,10 @@
   ```
 ### Transport Address
 
+```
 1. Configured
 2. Router ID
+```
 
 - Change transport address
   ```
