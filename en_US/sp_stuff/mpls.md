@@ -186,6 +186,7 @@
   - Session initialization
 
 [Further Reading](https://tools.ietf.org/html/rfc5036#section-2.5)
+[Further Reading 2](https://networklessons.com/mpls/mpls-ldp-label-distribution-protocol)
 
 
 ### LDP Router-ID
