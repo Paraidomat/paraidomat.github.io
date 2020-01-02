@@ -420,6 +420,65 @@ mpls ldp
 !
 ```
 
+### IGP Synchonization
+
+- Lack of synchronization between LDP and IGP can cause MPLS traffic loss.
+- Upon link up, for example, IGP can advertise and use a link before LDP 
+  convergence has occurred; or, a link may continue to be used in IGP after an
+  LDP session goes down.
+
+- LDP IGP synchronization synchronizes LDP and IGP so that IGP advertises links
+  with regular metrics only when MPLS LDP is converged on that link.
+- LDP considers a link converged when at least one LDP session is up and 
+  running on the link for which LDP has sent its applicable label bindings and
+  received at least one label binding from the peer.
+- LDP communicates this information to IGP upon link up or session down events
+  and IGP acts accordingly, depending on sync state.
+
+- In the event of an LDP graceful restart session disconnect, a session is
+  treated as converged as long as the graceful restart neighbor is timed out.
+- Additionaly, upon local LDP restart, a checkpointed recovered LDP graceful
+  restart session is used and treated as converged and is given an opportunity
+  to connect and resynchronize.
+
+- Under certain circumstances, it might be required to delay declaration of 
+  resyncronization to a configurable interval.
+  - LDP provides a configuration option to delay declaring synchronization up 
+    for up to 60 seconds.
+  - LDP communicates this information to IGP upon linkup or session down 
+    events.
+
+> Note: The configuration for LDP IGP synchronization resides in respective IGPs 
+> (OSPF and IS-S) and there is no LDP-specific configuration for enabling this
+> feature. However, there is a specific LDP configuration for IGP sync delay 
+> timer.
+
+#### IOS-XR
+
+##### OSPF
+
+```
+router ospf 100
+  mpls ldp sync
+  !
+  mpls ldp
+   igp sync delay 30
+  !
+```
+
+##### IS-IS
+
+```
+router isis 100
+ interface POS 0/2/0/0
+  address-family ipv4 unicast
+  mpls ldp sync
+  !
+ !
+!
+mpls ldp
+ igp sync delay 30
+```
 
 
 
