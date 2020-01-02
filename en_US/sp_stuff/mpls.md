@@ -503,6 +503,63 @@ mpls ldp
 
 ## Traffic Engineering
 
+### Technology Overview
+
+[Source](https://www.ciscolive.com/c/dam/r/ciscolive/us/docs/2015/pdf/BRKMPL-2100.pdf)
+
+#### Overview
+
+- Traffic Engineering ...
+  - ... introduces explicit routing
+  - ... supports constraint-based routing
+  - ... support admission control
+  - ... provides protection capabilities
+  - ... uses RSVP-TE to establish LSPs
+  - ... uses IS-IS / OSPF extensions to advertise link attributes
+
+#### Operation steps:
+
+- Link information distribution using IS-IS-TE / OSPF-TE
+- Path calcucations (CSPF)
+- Path setup (RSVP-TE)
+- Forwarding Traffic down the Tunnel
+  - Autoroute
+  - Static route
+  - Policy based routing
+  - Policy/Class-based tunnel selection
+  - Forwarding Adjacency
+  - Pseudowire Tunnel selection
+
+#### Link Information Distribution
+
+- Additional link characteristics
+  - Interface address
+  - Neighbor address
+  - Physical bandwidth
+  - Maximum reservable bandwidth
+  - Unreserved bandwidth (at eight priorities)
+  - TE metric
+  - Administrative group (attribute flags)
+- ISIS or OSPF flood link information
+- All TE nodes build a TE topology database
+- Not required if using off-line path computation
+
+#### Path Calculation
+
+- TE nodes can perform constraint-based routing
+- Tunnel head end generally responsible for path calculation
+- Constraints and topology database used as input to path computation
+- Shortest-path-first algorithm ignores links not meeting constraints
+- Tunnel can be signaled once a path is found
+
+#### TE LSP Signaling
+
+- Tunnel signaled with TE extensions to RSVP
+- Soft state maintained with **downstream PATH messages**
+- Soft state maintained with **upstream RESV messages**
+- LFIB populated using RSVP labels allocated by RESV messages
+
+
 ### Tunneling Modes for MPLS DiffServ
 
 - Tunneling is the ability of QoS to be transparent from one edge of a network
