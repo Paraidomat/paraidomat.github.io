@@ -161,6 +161,15 @@
 
 - Neighbors will connect to the transport address
 
+## LDP
+
+> LDP performs label distribution in MPLS environments. LDP uses hop-by-hop or dynamic path 
+> setup, but does not provide end-to-end switching services. Labels are assigned to routes
+> that are chosen by the underlying IGP routing protocols. The Label Switched Paths (LSPs)
+> that result from the routes, forward labeled traffic across the MPLS backbone to adjacent
+> nodes.
+[Source](https://www.cisco.com/c/en/us/td/docs/routers/asr9000/software/asr9k-r6-2/mpls/configuration/guide/b-mpls-cg-asr9000-62x/b-mpls-cg60x-asr9k_chapter_01010.html#con_1027186)
+
 ### LDP Router-ID
 
 1. Configured
@@ -193,3 +202,78 @@
   Router(config-if)# int g3/0
   Router(config-if)# mpls ldp discovery transport-address interface
   ```
+### LDP Graceful Restart
+
+- GR provides a control plane mechanism to ensure high availability and allows
+  detection and recovery from failure conditions while preserving 
+  Nonstop forwarding (NSF) services.
+- GR is a way to recover from signaling and control plane failures without
+  impacting forwarding.
+- Without GR, when an established session failes, the corresponding forwarding
+  states are cleaned immediately from the restarting and peer nodes.
+  - In this case LDP forwarding restarts from the beginning, causing a
+    potential loss of data and connectivity.
+- GR is negotiated between two peers during session initialization time in
+  the [`FT SESSION` TLV](https://tools.ietf.org/html/rfc3479#page-27).
+  (FT = Fault Tolerance)
+  - In the TLV each peer advertises the following information:
+    - **Reconnect Time:** The maximum time that the other peer will wait for
+      this LSR to reconnect after control channel failure.
+    - **Recovery Time:** The maximum time that the other peer has on its side
+      to reinstate or refresh its states with this LSR. This time is used
+      only during session reestablishment after earlier session failure.
+    - **FT Flag:** Specifies whether a restart could restore the preserved
+      (local) node state for this flag.
+- Once GR restart session parameteres are conveyed and the session is up and
+  running, graceful restart procedures are activated.
+
+- When configuring GR in a network with multiple links and/or targeted LDP
+  hello neighbor adjacencies with the same neighbor, or both:
+  - Make sure that GR is activated on the session before any hello adjacency
+    times out in case of neighbor control plane failures.
+  - One way of achieving this is by configuring a lower session hold time
+    between neighbors such that session timeout occurs before hello adjacency
+    timeout. It is recommended to set the LDP session hold time using the
+    formula:
+    ```
+    Session Holdtime <= (Hello holdtime - Hello interval) * 3
+    ```
+  - This means that for default values of 15 seconds and 5 seconds for link 
+    Hello holdtime and interval respectively, session hold time should be set
+    to 30 seconds at most.
+
+#### Control Plane Failure
+
+- When a control plane failure occurs, connectivity can be affected. 
+- The forwardings states installed by the router control planes are lost,
+  and the in-transit packets could be dropped, thus breaking NSF.
+
+![Control Plane Failure](https://www.cisco.com/c/dam/en/us/td/i/000001-100000/95001-100000/95001-96000/95127.ps/_jcr_content/renditions/95127.jpg)
+**Control Plane Failure**: This figure illustrates a control plane failure. 
+For more information see [this link](https://www.cisco.com/c/en/us/td/docs/routers/asr9000/software/asr9k-r6-2/mpls/configuration/guide/b-mpls-cg-asr9000-62x/b-mpls-cg60x-asr9k_chapter_01010.html#con_1061504)
+
+#### Phases in Graceful Restart
+
+- The GR mechanism is divided into different phases:
+
+1. **Control communication failure detection**
+   Control communication failure is deteced when the system detects either:
+   - Missed LDP hello discovery messages
+   - Missed LDP keepalive protocol messages
+   - Detection of TCP disconnection with a peer
+2. **Forwarding state maintenance duing failure**
+   - Persistent forwarding states at each LDP are achieved though persistent
+     storage (checkpoint) by the LDP control plane.
+   - While the control plane is in the process of recovering, the forwarding 
+     plane keeps the forwarding states, but marks them as stale.
+   - Similarly, the peer control plane also keeps (and marks as stale) the 
+     installed forwarding rewrites associated with the node that is restarting.
+   - The combination of local node forwarding and remote node forwarding plane
+     states ensures NSF and no disruption of the traffic.
+3. **Control state recovery**
+   - Recovery occurs when the session is reestablished and label bindings are
+     exchanged again. This process allows the peer nodes to synchronize and
+     refresh stale forwarding states.
+
+For further Information check [this link](https://www.cisco.com/c/en/us/td/docs/routers/asr9000/software/asr9k-r6-2/mpls/configuration/guide/b-mpls-cg-asr9000-62x/b-mpls-cg60x-asr9k_chapter_01010.html#con_1137244)
+
