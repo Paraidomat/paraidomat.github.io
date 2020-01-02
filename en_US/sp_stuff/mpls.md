@@ -314,3 +314,35 @@ mpls ldp
  !
 !   
 ```
+
+
+### Label Acceptance Control (Inbound Filtering)
+
+- By default, LDP accepts labels (as remote bindings) for all prefixes from 
+  all peers.
+- LDP operates in **liberal label retention mode**, which instructs LDP to
+  keep remote bindings from all peers for a given prefix.
+- For security reasons, or to conserve memory, you can override this behavior
+  by configuring label binding acceptance for set of prefixes from a given
+  peer. 
+
+> Note: Inbound filtering can also be implemented using an outbound filtering policy; however, you may not be able to implement this system if an LDP peer resides under a different administration domain. When both inbound and outbound filtering options are available, we recommend that you use outbound label filtering.
+
+#### IOS-XR:
+
+```
+mpls ldp
+ label 
+accept
+ for pfx_acl_2 from 192.168.2.2
+!
+ !
+!
+
+mpls ldp
+ address-family ipv4
+  label remote accept from 192.168.1.1:0 for pfx_acl_2
+  !
+ !
+!
+```
