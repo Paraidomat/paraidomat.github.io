@@ -277,3 +277,40 @@ For more information see [this link](https://www.cisco.com/c/en/us/td/docs/route
 
 For further Information check [this link](https://www.cisco.com/c/en/us/td/docs/routers/asr9000/software/asr9k-r6-2/mpls/configuration/guide/b-mpls-cg-asr9000-62x/b-mpls-cg60x-asr9k_chapter_01010.html#con_1137244)
 
+### Label Advertisement Control (Outbound Filtering)
+
+- By default, LDP advertises labels for all the prefixses to all its neighbors.
+- When this is not desirable (scalability/security), you can configure LDP to 
+  perform outbound filtering for local label advertisement for one or more
+  prefixes to one or more peers.
+
+#### IOS-XR:
+
+```
+mpls ldp 
+     address-family ipv4
+       label local advertise
+          disable
+          for pfx_acl_1 to peer_acl_1 
+          for pfx_acl_2 to peer_acl_2
+          for pfx_acl_3
+          interface POS 0/1/0/0
+          interface POS 0/2/0/0
+      !
+    !
+ 
+   	ipv4 access-list pfx_acl_1
+     10 permit ipv4 host 1.0.0.0 any
+ !
+ ipv4 access-list pfx_acl_2
+     10 permit ipv4 host 2.0.0.0 any
+ !
+ ipv4 access-list peer_acl_1
+     10 permit ipv4 host 1.1.1.1 any
+     20 permit ipv4 host 1.1.1.2 any
+ !
+ ipv4 access-list peer_acl_2
+     10 permit ipv4 host 2.2.2.2 any
+ !
+!   
+```
