@@ -109,7 +109,7 @@
           remote binding: tsr: 2.2.2.2:0, tag: imp-null
           remote binding: tsr: 3.3.3.3:0, tag: imp-null
   ```
-## IOS-XR
+### IOS-XR
 
 - **show mpls ldp binding**
   ```
