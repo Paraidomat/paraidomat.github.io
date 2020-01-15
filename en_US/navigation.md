@@ -21,7 +21,10 @@
   * # SP Stuff
   * [Multicast](sp_stuff/multicast.md)
   * [MPLS](sp_stuff/mpls.md)
+  * [Fundamentals of QoS](sp_stuff/fundamentals_of_qos.md)
   * [QoS](sp_stuff/qos.md)
+  * # ACI Stuff
+  * [ACI Basics](aci_stuff/aci_basics.md)
 
 [VIM Cheats](vimcheats.md)
 [Coding](coding.md)
