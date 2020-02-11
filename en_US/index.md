@@ -9,7 +9,7 @@ Attention: Please be aware that everything on this page are just some notes for 
 ## Who is Paraidomat?
 
 - Networking Engineer
-- Cisco CCNA (R+S, SP), Cisco CCNP (R+S, 1/2 SP)
+- Cisco CCNA (R+S, SP), Cisco CCNP (R+S, SP)
 - A guy with a love for:
   - Linux
   - open source software
