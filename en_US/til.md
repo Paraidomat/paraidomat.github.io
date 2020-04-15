@@ -90,6 +90,12 @@ diag firewall iprope show 100004 <policy_id>
 
 [Source](https://kb.fortinet.com/kb/documentLink.do?externalID=FD33786)
 
+### Get logging messages from firewall
+
+```
+execute log filter category 1
+execute log display
+```
 
 ## F5
 
