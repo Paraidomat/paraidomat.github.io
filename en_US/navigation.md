@@ -16,30 +16,30 @@
 [Networking Stuff]()
 
   * # General
-  * [GNS3 in AWS](networking_stuff/general/AWS_GNS3_getting_started.md)
-  * [Today I learned](networking_stuff/general/til.md)
-  * [Fundamentals of QoS](networking_stuff/general/fundamentals_of_qos.md)
+  * [GNS3 in AWS](pages/networking_stuff/general/AWS_GNS3_getting_started.md)
+  * [Today I learned](pages/networking_stuff/general/til.md)
+  * [Fundamentals of QoS](pages/networking_stuff/general/fundamentals_of_qos.md)
   * # SP Stuff
-  * [Multicast](networking_stuff/sp_stuff/multicast.md)
-  * [MPLS](networking_stuff/sp_stuff/mpls.md)
-  * [QoS](networking_stuff/sp_stuff/qos.md)
+  * [Multicast](pages/networking_stuff/sp_stuff/multicast.md)
+  * [MPLS](pages/networking_stuff/sp_stuff/mpls.md)
+  * [QoS](pages/networking_stuff/sp_stuff/qos.md)
   * # ACI Stuff
-  * [ACI Basics](aci_stuff/aci_basics.md)
+  * [ACI Basics](pages/aci_stuff/aci_basics.md)
 
 [Today I Learned]()
 
-  * [JunOs](today_i_learned/junos.md)
-  * [Nokia](today_i_learned/nokia.md)
-  * [IOS-XR](today_i_learned/ios_xr.md)
-  * [Fortigate](today_i_learned/fortigate.md)
-  * [F5](today_i_learned/f5.md)
-  * [BGP](today_i_learned/bgp.md)
-  * [Multicast](today_i_learned/multicast.md)
-  * [Linux](today_i_learned/linux.md)
+  * [JunOs](pages/today_i_learned/junos.md)
+  * [Nokia](pages/today_i_learned/nokia.md)
+  * [IOS-XR](pages/today_i_learned/ios_xr.md)
+  * [Fortigate](pages/today_i_learned/fortigate.md)
+  * [F5](pages/today_i_learned/f5.md)
+  * [BGP](pages/today_i_learned/bgp.md)
+  * [Multicast](pages/today_i_learned/multicast.md)
+  * [Linux](pages/today_i_learned/linux.md)
 
-[VIM Cheats](vim_cheats/vimcheats.md)
-[Coding](coding_stuff/coding.md)
-[Gaming Stuff](gaming_stuff/gaming.md)
+[VIM Cheats](pages/vim_cheats/vimcheats.md)
+[Coding](pages/coding_stuff/coding.md)
+[Gaming Stuff](pages/gaming_stuff/gaming.md)
 
 
 
