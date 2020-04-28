@@ -17,7 +17,6 @@
 
   * # General
   * [GNS3 in AWS](pages/networking_stuff/general/AWS_GNS3_getting_started.md)
-  * [Today I learned](pages/networking_stuff/general/til.md)
   * [Fundamentals of QoS](pages/networking_stuff/general/fundamentals_of_qos.md)
   * # SP Stuff
   * [Multicast](pages/networking_stuff/sp_stuff/multicast.md)
