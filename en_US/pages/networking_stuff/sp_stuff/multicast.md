@@ -67,3 +67,9 @@
     - Global range: 224.0.1.0-238.255.255.255
     - Limited (local) scope: 239.0.0.0/8
 - Is part of a global scope recently used for new protocols and temporary usage
+
+## IGMP and PIM Workflow + PIM SPT Switchover
+
+All in one Picture:
+
+![IGMP PIM SPT Switchover](https://github.com/Paraidomat/paraidomat.github.io/blob/master/en_US/resources/IGMP%20PIM%20SPT%20Switchover.png)
