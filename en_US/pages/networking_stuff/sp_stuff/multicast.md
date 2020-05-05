@@ -72,4 +72,4 @@
 
 All in one Picture:
 
-![IGMP PIM SPT Switchover](https://github.com/Paraidomat/paraidomat.github.io/blob/master/en_US/resources/IGMP%20PIM%20SPT%20Switchover.png)
+![IGMP PIM SPT Switchover](https://github.com/Paraidomat/paraidomat.github.io/raw/master/en_US/resources/IGMP%20PIM%20SPT%20Switchover.png)
