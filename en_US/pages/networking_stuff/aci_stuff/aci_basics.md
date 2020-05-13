@@ -27,3 +27,7 @@
 - run `show vrf` to show all VRFs
 - run `show ip route vrf ${vrf-name}` to show routes in VRF.
 
+## Check if a specific leaf is dropping traffic for a specific network
+
+- `show logging ip access-list internal packet-log deny | grep {{ $ipaddress }} | head -n 15`
+  - The `head -n 15` is important because otherwise you will get a lot of old logging messages.
