@@ -4,6 +4,7 @@
 - [Introduction to ACI PDF](https://www.ciscolive.com/c/dam/r/ciscolive/apjc/docs/2019/pdf/BRKACI-1000.pdf)
 - [Introduction to ACI VOD](https://www.ciscolive.com/global/on-demand-library.html?search=ACI&search.technicallevel=scpsSkillLevel_aintroductory#/video/15524933755090013XSm)
 - [ACI Naming and Numbering](https://www.cisco.com/c/en/us/td/docs/switches/datacenter/aci/apic/sw/kb/b-Cisco-ACI-Naming-and-Numbering.html)
+- [ACI White Paper Listing](https://www.cisco.com/c/en/us/solutions/data-center-virtualization/application-centric-infrastructure/white-paper-listing.html)
 
 ## Mantras
 
