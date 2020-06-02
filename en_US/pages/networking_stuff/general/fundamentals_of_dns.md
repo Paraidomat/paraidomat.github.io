@@ -59,7 +59,7 @@ The way the DNS Server works is irrelevant for the client.
 - Distribution of hostnames into different domains helps with load distribution and enables decentralized management
 - Tree layout that usually is searched from the root outwards to the leafs
 
-![https://upload.wikimedia.org/wikipedia/commons/9/91/Dns-raum.svg](DNS Namespace)
+![DNS Namespace](https://upload.wikimedia.org/wikipedia/commons/9/91/Dns-raum.svg)
 Source: https://de.wikipedia.org/wiki/Domain_Name_System
 
 - A name in DNS system is called a __Fully Qualified Domain Name__ (FQDN).
