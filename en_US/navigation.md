@@ -18,6 +18,7 @@
   * # General
   * [GNS3 in AWS](pages/networking_stuff/general/AWS_GNS3_getting_started.md)
   * [Fundamentals of QoS](pages/networking_stuff/general/fundamentals_of_qos.md)
+  * [Fundamentals of DNS](pages/networking_stuff/general/fundamentals_of_dns.md)
   * # SP Stuff
   * [Multicast](pages/networking_stuff/sp_stuff/multicast.md)
   * [MPLS](pages/networking_stuff/sp_stuff/mpls.md)
@@ -27,7 +28,7 @@
 
 [Today I Learned]()
 
-  * [JunOs](pages/today_i_learned/junos.md)
+  * [JunOS](pages/today_i_learned/junos.md)
   * [Nokia](pages/today_i_learned/nokia.md)
   * [IOS-XR](pages/today_i_learned/ios_xr.md)
   * [Fortigate](pages/today_i_learned/fortigate.md)
