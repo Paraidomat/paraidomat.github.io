@@ -31,12 +31,7 @@
 
 ## Simplyfied flow (client view)
 
-```
-+--------+                                        +--------+
-| Client |----- (1) What IP is www.google.com --->| Server |
-|        |<---- (2) www.google.de is x.y.z.a  ----|        |
-+--------+                                        +--------+
-```
+![DNS Client Server](https://raw.githubusercontent.com/Paraidomat/paraidomat.github.io/master/en_US/resources/DNS_Client_Server.svg)
 
 The way the DNS Server works is irrelevant for the client.
 
