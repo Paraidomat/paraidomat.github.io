@@ -66,7 +66,6 @@ Source: https://de.wikipedia.org/wiki/Domain_Name_System
 - Basis for DNS resolvement are the so called _root servers_
 - Requests to the DNS system are handled in a distributed fashion.
 
-> Note: Here should be a picture of the resolve process from the client to
-> the root server, to the tld-server, to the authorative server.
+![DNS Recursion](https://raw.githubusercontent.com/Paraidomat/paraidomat.github.io/master/en_US/resources/DNS_Recursion.svg)
 
 
