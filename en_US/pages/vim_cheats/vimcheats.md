@@ -6,10 +6,12 @@ This is just my personal VIM Cheat Sheet
 
 ## Sort lines 
 
+`:{range}sort u`
 [Check this](https://vim.fandom.com/wiki/Sort_lines)
 
 ## Count number of matches of a pattern
 
+`:%s/pattern//gn`
 [Check this](http://vim.wikia.com/wiki/Count_number_of_matches_of_a_pattern)
 
 ## Multiline Edit (like Sublime)
@@ -18,15 +20,13 @@ This is just my personal VIM Cheat Sheet
 
 ## Highlight current line
 
-`:set cursorline`[^cursorline]
-
-[^cursorline]: http://vim.wikia.com/wiki/Highlight_current_line
+`:set cursorline`
+[cursorline](http://vim.wikia.com/wiki/Highlight_current_line)
 
 ## Get help inside vim
 
-`:help`[^help]
-
-[^help]: http://vim.wikia.com/wiki/Help
+`:help`
+[help](http://vim.wikia.com/wiki/Help)
 
 ## Disable Folding
 
@@ -39,10 +39,10 @@ This is just my personal VIM Cheat Sheet
 
 ## Delete all lines containing a pattern
 
-For example, to delete all lines containing "profile" (remove the /d to show the lines that the command will delete):
+For example, to delete all lines containing "pattern" (remove the /d to show the lines that the command will delete):
 
 ```
-:g/profile/d
+:g/pattern/d
 ```
 
 ## Open command-line history 
