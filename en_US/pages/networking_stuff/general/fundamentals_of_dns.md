@@ -100,7 +100,6 @@ de.                     172800  IN      NS      n.de.net.
 de.                     172800  IN      NS      f.nic.de.
 de.                     172800  IN      NS      l.de.net.
 de.                     172800  IN      NS      s.de.net.
-de.                     86400   IN      DS      45580 8 2 918C32E2F12211766BE6226674F447458F2259B9A0D87B44D29D55AF ECA6B2E1
 [...]
 ;; Received 778 bytes from 2001:7fe::53#53(i.root-servers.net) in 10 ms
 
@@ -120,8 +119,6 @@ heise.de.               86400   IN      NS      ns.pop-hannover.de.
 heise.de.               86400   IN      NS      ns.plusline.de.
 ;; Received 259 bytes from 62.48.67.66#53(ns2.pop-hannover.net) in 31 ms
 ```
-
-
 
 ## What is a root server?
 
