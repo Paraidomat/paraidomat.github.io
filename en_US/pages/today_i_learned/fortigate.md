@@ -1,38 +1,29 @@
 # Fortigate
 
-## Get routing table
+## get
 
-```
-get router info routing-table details {$ip-address}
-```
+| Usage | Command | 
+| ----- | ------- | 
+| Get routing table | `get router info routing-table details <ip-address>` |
+| Get BGP info | `get router info bgp ?` |
+| Get MAC address of next-hop | `get system arp` |
 
-## Get bgp info
 
-```
-get router info bgp ?
-```
 
-## Get interface configuration
+## Diagnose
 
-```
-show system interface {$interface-name}
-```
+| Usage | Command | 
+| ----- | ------- | 
+| Get interface counters | `diag netlink interface list [<interface>] <Enter>` |
+| Get policy counters | `diag firewall iprope show 10004 <policy_id>` |
 
-## Get MAC-Address of nexthop
+## Show
 
-```
-get system arp
-```
+| Usage | Command | 
+| ----- | ------- | 
+| Show interface configuration | `show system interface | grep -f <interface-name>` |
 
-## Get policy counter field
-
-```
-diag firewall iprope show 100004 <policy_id>
-```
-
-[Source](https://kb.fortinet.com/kb/documentLink.do?externalID=FD33786)
-
-## Get logging messages from firewall
+## Execute
 
 ```
 execute log filter category 1
