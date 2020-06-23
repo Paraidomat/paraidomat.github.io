@@ -27,6 +27,8 @@
 
 ## Execute
 
+### Read Firewall Log Messages
+
 ```
 execute log filter category 1
 execute log display
