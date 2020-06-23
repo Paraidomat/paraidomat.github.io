@@ -7,6 +7,8 @@
 | Get routing table | `get router info routing-table details <ip-address>` |
 | Get BGP info | `get router info bgp ?` |
 | Get MAC address of next-hop | `get system arp` |
+| Get Interface Speed | `get system interface physical` |
+| Get Transceiver Part No. | `get system interface transceiver` |
 
 
 
