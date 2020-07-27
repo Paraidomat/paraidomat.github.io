@@ -28,7 +28,19 @@ This is just my personal VIM Cheat Sheet
 `:help`
 [help](http://vim.wikia.com/wiki/Help)
 
-## Disable Folding
+## Folding
+
+[Folding](https://vim.fandom.com/wiki/Folding)
+
+### Folding Shortcuts
+
+| Shortcut | Function |
+| -------- | -------- |
+| `zc`     | Close Fold |
+| `zo`     | Open Fold |
+| `za`     | Toggle current fold |
+
+### Disable Folding
 
 `:set nofoldenable` in command mode, or add `set nofoldenable` to your `.vimrc`
 
