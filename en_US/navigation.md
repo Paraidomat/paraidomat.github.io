@@ -19,6 +19,7 @@
   * [GNS3 in AWS](pages/networking_stuff/general/AWS_GNS3_getting_started.md)
   * [Fundamentals of QoS](pages/networking_stuff/general/fundamentals_of_qos.md)
   * [Fundamentals of DNS](pages/networking_stuff/general/fundamentals_of_dns.md)
+  * [DevNet Associate](pages/networking_stuff/general/DevNet_Associate.md)
   * # SP Stuff
   * [Multicast](pages/networking_stuff/sp_stuff/multicast.md)
   * [MPLS](pages/networking_stuff/sp_stuff/mpls.md)
