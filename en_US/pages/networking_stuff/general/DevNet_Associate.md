@@ -4,11 +4,177 @@
 
 ### Compare data formats (XML, JSON, YAML)
 
+#### XML
+
+[Source](https://www.w3schools.com/xml/xml_whatis.asp)
+
+- Stands for eXtensible Markup Language
+- is a markup language much like HTML
+- was designed to store and transport data
+- was designed to be self-descriptive
+- is a W3C recommendation since 1998
+
+Example:
+
+```
+<note>
+  <to>Tove</to>
+  <from>Jani</from>
+  <heading>Reminder</heading>
+  <body>Don't forget me this weekend!</body>
+</note>
+```
+
+#### JSON
+
+- **J**ava **S**cript **O**bject **N**otation
+- is a syntax for storing and exchanging data
+- lightweight
+- language independent
+
+Example:
+
+```
+{
+  name: "John", 
+  age: 30, 
+  city: "New York"
+  list: ["a", "list", "of", "strings"]
+  this: {
+    even: "can",
+    be: "nested"
+  }
+}
+```
+
+#### YAML
+
+[Source](https://yaml.org/spec/1.2/spec.html#Introduction)
+
+- `YAML` = "YAML Ain't Markup Language"
+- is a data serialization language
+- designed to be human-friendly
+- works well with modern programming languages
+- YAML Goals:
+  - easy readable by humans
+  - data is portable between programming languages
+  - matches the native data structures of agile languages
+  - has a consistent model to support generic tools
+  - supports one-pass processing
+  - expressive and extensible
+  - easy to implement and use
+  
+##### YAML Collections
+
+- Use indentation for scope
+- each entry begins on its own line
+- Block sequences indicate each entry with a dash and a space (`- `)
+- Mappings use colon and space (`: `) to mark each key value pair
+- Comments begin with a `#`
+
+- Examples:
+  - Sequence of scalars
+    ```
+    - foo bar
+    - blupp bla
+    - honky tonk
+    ```
+  - Mapping of scalars to scalars
+    ```
+    foo: bar
+    blupp: bla
+    honky: tonk
+    ```
+  - Mapping Scalars to Sequences
+    ```
+    nerd:
+      - foo bar
+    nonsense:
+      - blupp bla
+    instrument:
+      - honky tonk
+    ```
+
 ### Describe parsing of common data format (XML, JSON, and YAML) to Python data structures
+
+#### XML
+
+- [See this](https://docs.python.org/3/library/xml.html)
+
+#### JSON
+
+- To dump and load dictionaries to JSON use the [JSON](https://docs.python.org/3/library/json.html) module
+  - `json.dump(obj, fp)` to serialize a phyton object to a file pointer
+  - `json.dumps(obj)` to serialize to a JSON formated string.
+  - `json.load(fb)` to deserialize the contents of a file, referenced by a file pointer to a python object
+  - `json.loads(str)` to deserialize a string to a python object
+  
+#### YAML
+
+- See [PyYAML](https://pyyaml.org/wiki/PyYAMLDocumentation)
 
 ### Describe the concepts of test-driven development
 
+[Source](https://en.wikipedia.org/wiki/Test-driven_development)
+
+![Test driven development](https://upload.wikimedia.org/wikipedia/commons/0/0b/TDD_Global_Lifecycle.png)
+
+- Development-Cycle:
+  1. Add a Test
+    - each feature begins with writing a test.
+    - Write a test that defines a function or improvements of a function, which should be very succinct.
+  2. Run all tests and see if the new test fails
+    - The validates, that the tests work correctly.
+    - The test should fail for the expected reason.
+    - This increases the confidence in the test.
+  3. Write the code
+    - Write code that causes the test to pass.
+    - The new code may not be perfect, this is not an issue, due to Step 5.
+  4. Run tests
+    - If all test cases now pass, the programmer can be confident that the new code meets the test requirements and doesn't break anything else
+  5. Refactor code
+    - The growing code base must be cleaned up regularly during TDD
+  6. goto 1.
+
 ### Compare software development methods (agile, lean, and waterfall)
+
+#### Agile
+
+- Agile software development values
+  - __Individuals and interactions__ over processes and tools
+  - __Working software__ over comprehensive documentation
+  - __Customer collaboration__ over contract negotiation
+  - __Responding to change__ over following a plan.
+  
+- Agile software development principles
+1. Customer satisfaction by early and continuous delivery of valuable software.
+1. Welcome changing requirements, even in late development.
+1. Deliver working software frequently (weeks rather than months)
+1. Close, daily cooperation between business people and developers
+1. Projects are built around motivated individuals, who should be trusted
+1. Face-to-face conversation is the best form of communication (co-location)
+1. Working software is the primary measure of progress
+1. Sustainable development, able to maintain a constant pace
+1. Continuous attention to technical excellence and good design
+1. Simplicity - the art of maximizing the amount of work not done — is essential
+1. Best architectures, requirements, and designs emerge from self-organizing teams
+1. Regularly, the team reflects on how to become more effective, and adjusts accordingly
+
+#### Lean software development
+
+[Source](https://en.wikipedia.org/wiki/Lean_software_development)
+
+Can be summarized by seven principles, very close in concept to lean manufacutring principles:
+
+1. Eliminate waste
+1. Amplify learning
+1. Decide as late as possible
+1. Deliver as fast as possible
+1. Empower the team
+1. Build integrity in
+1. Optimize the whole
+
+#### Waterfall software development
 
 ### Explain the benefits of organizing code into methods / functions, classes, and modules
 
