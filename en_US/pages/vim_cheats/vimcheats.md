@@ -1,8 +1,12 @@
 # VIM Cheat Sheet
 
-This is just my personal VIM Cheat Sheet
+These are just a few vim function that i use regularly.
 
 > All these things are basically just stolen from other webpages. Mostly it's gonna be [vim.wikia.com](http://vim.wikia.com/wiki)
+
+## Overview
+
+![VIM Cheat Cheat](https://i.imgur.com/YLInLlY.png)
 
 ## Sort lines 
 
