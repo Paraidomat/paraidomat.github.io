@@ -178,19 +178,54 @@ Can be summarized by seven principles, very close in concept to lean manufacutri
 
 ### Explain the benefits of organizing code into methods / functions, classes, and modules
 
+- Modularity for easier troubleshooting
+- Reuse of code through inheritance
+- Flexibility trough polymorphism
+- Effective problem solving
+
 ### Identify the advantages of common design patterns (MVC and Observer)
+
+#### Model View Controller
+
+- Simultaneous development
+  - The MVC decouples the various components of an application, developers are able to work in parallel on different components without affecting or blocking one another.
+- High cohesion
+  - MVC enables logical grouping of related actions on a controller together. 
+  - The views for a specific model are also grouped together.
+- Loose coupling
+  - low coupling among models, views or controllers
+- Ease of modification
+  - Because of the separation of responsibilities, future development or modification is easier.
+- Multiple views for a model.
+- Testability
+
+#### Observer
+
+> The observer pattern is a software design pattern in which an object, called the **subject**, maintains a list of its dependents, called **observers**, and notifies them automatically of any state changes, usually by calling one of their methods.
 
 ### Explain the advantages of version control
 
 ### Utilize common version control operations with Git
 
 - Clone
+  - Clones a repository into a newly created directory, creates remote-tracking branches for each branch in the cloned repository, and creates and checks out an initial branch that is fored from the cloned repositoy's currently active branch.
 - Add/Remove
+  - *Add*: This command updates the index using the current content found in the working tree, to prepare the content stanged for the next commit.
 - Commit
+  - Create a new commit containing the current contents of the index and the given log message describing the changes.
 - Push/Pull
+  - *Pull*: Incorporates changes from a remote repository into the current branch. `git pull` is a shorthand for `git fetch` followed by `git merge FETCH_HEAD`
+  - *Push*: Updates remote refs using local refs, while sending objects necessary to complete given refs.
 - Branch
+  - List, create, or delete branches
+  - If `--list` is given, or if there are no non-option arguments, existing branches are listed; the current branch will be highlighted in green and marked with an astersik.
+  - Any branches checked out in linked worktrees will be highlighted in cyan and marked with a plus sign.
+  - Option `-r` causes the remote-tracking branches to be listed, and option `-a` shows both local and remote branches.
 - Merge and handling conflicts
+  - Incorporates changes from the named commits (since the time their histories diverged from the current branch) into the current branch.
+  - This command is used by `git pull` to incorporate changes from another repository and can be used by hand to merge changes from one branch into another.
 - diff
+  - Show changes between the working tree and the index or a tree, changes between the index and a tree, changes between two trees, changes resulting from a merge, changes between two blob objects, or changes between two files on disk. 
 
 ## Understanding and Using APIs
 
