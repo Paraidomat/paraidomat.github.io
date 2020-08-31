@@ -198,9 +198,34 @@ Can be summarized by seven principles, very close in concept to lean manufacutri
 
 ### Describe common usage patterns related to webhooks
 
+> A webhook in web development is a method of augmenting or altering the behavior of a web page or web application with custom callbacks. 
+> These callbacks may be maintained, modified, and managed by third-party users and developers who may not necessarily be affiliated with the orgininating website or application.
+> The term is derived from the programming term [hook](https://en.wikipedia.org/wiki/Hooking).
+
+- Format is usually JSON.
+- Request is done as HTTP POST request.
+- Webhooks are "user-defined HTTP callbacks".
+- They are usually triggered by some event
+  - When the event occurs, the source site makes an HTTP request to the URL configured for the webhook
+  - Users can configure them to case events on one site to invoke behavior on another.
+
+Use cases:
+- CVS
+- CI/CD systems
+- Bug tracking systems
+
 ### Identify the constraints when consuming APIs
 
 ### Explain common HTTP response codes associated with REST APIs
+
+TL;DR:
+| Code | Meaning |
+| ---- | ------- |
+| 2xx | All good |
+| 4xx | Client f\*cked up |
+| 5xx | Server f\*cked up |
+
+For a complete list of HTTP Status codes see [developer.mozilla.org](https://developer.mozilla.org/de/docs/Web/HTTP/Status)
 
 ### Troubleshoot a problem given the HTTP response code, request and API documentation
 
@@ -211,6 +236,8 @@ Can be summarized by seven principles, very close in concept to lean manufacutri
 ### Compare common API styles (REST, RPC, synchronous, and asynchronous)
 
 ### Construct a Python script that calls a REST API using the requests library
+
+[requests library documentation](https://requests.readthedocs.io/en/master/)
 
 ## Cisco Plaforms and Development
 
