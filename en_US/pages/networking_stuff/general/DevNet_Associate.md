@@ -205,6 +205,9 @@ Can be summarized by seven principles, very close in concept to lean manufacutri
 
 ### Explain the advantages of version control
 
+- Version control is a system that records changes to a file or set of files over time so that you can recall specific versions later.
+- Allows to compare files, identify differences, and merge changed if needed 
+
 ### Utilize common version control operations with Git
 
 - Clone
