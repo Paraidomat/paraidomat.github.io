@@ -36,13 +36,13 @@ Example:
 
 ```json
 {
-  name: "John", 
-  age: 30, 
-  city: "New York"
-  list: ["a", "list", "of", "strings"]
-  this: {
-    even: "can",
-    be: "nested"
+  "name": "John", 
+  "age": 30, 
+  "city": "New York"
+  "list": ["a", "list", "of", "strings"]
+  "this": {
+    "even": "can",
+    "be": "nested"
   }
 }
 ```
