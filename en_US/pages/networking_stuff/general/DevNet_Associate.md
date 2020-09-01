@@ -257,11 +257,12 @@ Use cases:
 ### Explain common HTTP response codes associated with REST APIs
 
 TL;DR:
-| Code | Meaning |
-| ---- | ------- |
-| 2xx | All good |
-| 4xx | Client f\*cked up |
-| 5xx | Server f\*cked up |
+
+| Code | Meaning           |
+| ---- | ----------------- |
+| 2xx  | All good          |
+| 4xx  | Client f\*cked up |
+| 5xx  | Server f\*cked up |
 
 For a complete list of HTTP Status codes see [developer.mozilla.org](https://developer.mozilla.org/de/docs/Web/HTTP/Status)
 
