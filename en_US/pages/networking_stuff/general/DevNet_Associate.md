@@ -16,7 +16,7 @@
 
 Example:
 
-```
+```xml
 <note>
   <to>Tove</to>
   <from>Jani</from>
@@ -34,7 +34,7 @@ Example:
 
 Example:
 
-```
+```json
 {
   name: "John", 
   age: 30, 
@@ -74,19 +74,19 @@ Example:
 
 - Examples:
   - Sequence of scalars
-    ```
+    ```yaml
     - foo bar
     - blupp bla
     - honky tonk
     ```
   - Mapping of scalars to scalars
-    ```
+    ```yaml
     foo: bar
     blupp: bla
     honky: tonk
     ```
   - Mapping Scalars to Sequences
-    ```
+    ```yaml
     nerd:
       - foo bar
     nonsense:
