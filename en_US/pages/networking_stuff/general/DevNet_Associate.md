@@ -38,10 +38,10 @@ Example:
 {
   "name": "John", 
   "age": 30, 
-  "city": "New York"
+  "city": "New York",
   "list": [
     "a", "list", "of", "strings"
-    ]
+    ],
   "this": {
     "even": "can",
     "be": "nested"
