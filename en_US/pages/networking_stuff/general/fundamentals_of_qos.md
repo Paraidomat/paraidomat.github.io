@@ -254,12 +254,17 @@ DP = Drop Probabilty
 - The "maximum Bandwidth" is described by the _Commited Information Rate_ 
   (CIR). It is defined as:
   > The **average** speed over the period of a second. 
-  > $$ CIR = \frac{B_c}{T_c}$$
-  > $$ B_c $$ (Commited Burst) = Number of bits (for shaping) or bytes (for 
-  > policing) that are
-  > deposited in the token bucket during a timing interval.
+  > ```math 
+  > CIR = \frac{B_c}{T_c}$$
+  > ```
+  > ```math
+  > B_c (Commited Burst) = Number of bits (for shaping) or bytes (for 
+  > policing) that are deposited in the token bucket during a timing interval.
+  > ```
+  > ```math
   > $$ T_c $$ (Timing Interval) = The Interval at which tokens are deposited in 
   > the token bucket.
+  > ```
   
 - So for policing and shaping to work we use the line speed 
 
