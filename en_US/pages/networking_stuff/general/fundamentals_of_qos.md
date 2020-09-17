@@ -262,7 +262,7 @@ DP = Drop Probabilty
   > policing) that are deposited in the token bucket during a timing interval.
   > ```
   > ```math
-  > $$ T_c $$ (Timing Interval) = The Interval at which tokens are deposited in 
+  > T_c (Timing Interval) = The Interval at which tokens are deposited in 
   > the token bucket.
   > ```
   
