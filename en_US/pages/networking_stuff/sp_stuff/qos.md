@@ -553,12 +553,70 @@ Source: https://www.cisco.com/c/en/us/td/docs/routers/asr9000/software/asr9k_r5-
 > The dual-token bucket algorithem uses user-configured values to determine the maximum rate of traffic allowed on a queue at a given moment.
 > In this way, the two-rate policer can meter traffic at two independent rates: the commited information rate (CIR) and the peak information rate (PIR).
 
+![Two rate policer](https://www.cisco.com/c/dam/en/us/td/i/000001-100000/60001-65000/60001-61000/60515.ps/_jcr_content/renditions/60515.jpg)
+
 <!-- Continue here: https://www.cisco.com/c/en/us/td/docs/routers/asr9000/software/asr9k_r5-1/qos/configuration/guide/b_qos_cg51xasr/b_qos_cg51xasr_chapter_0100.html#ID430 -->
 
 
 ## Implement traffic shaping on Cisco IOS-XR and IOS-XE
 
+[Source](https://www.cisco.com/c/en/us/td/docs/routers/asr9000/software/asr9k-r6-2/qos/configuration/guide/b-qos-cg-asr9000-62x/b-qos-cg-asr9000-62x_chapter_0101.html#ID2116)
+
+- Traffic shaping allows you to controle hte traffic exiting an interface to match its transmission to the speed of the remote tar5get interface and ensure that the traffic confoirms to spolicies contracted for it.
+- **aping performed on incoming and outgoing interfaces is done at the Layer 2 level and includes the Layer 2 header in the rate calculation.**
+
+- Create policy-map:
+```
+policy-map $policy-map-name
+ class $class-name
+  shape average {percent $value | $rate [$units]}
+```
+
+- Bind policy-map to iterface:
+```
+interface $interface-name
+ service-policy {input | output} $policy-map-name
+``` 
+
+
 ## Describe LPTS and hardware rate limiters on Cisco IOS-XR routers
+
+[Source](https://content.cisco.com/chapter.sjs?uri=/searchable/chapter/content/en/us/td/docs/iosxr/ncs5xx/ipaddress/65x/b-ip-addresses-cg-65x-ncs540/b-ip-addresses-cg-65x-ncs540_chapter_0101.html.xml)
+
+- Local Packet Transport Services (LPTS) maintains tables describing all packet flows destined for the securure domain router (SDR)
+  - making sure tat packets are delivered to their intended destinations
+- uses two components:
+  1. Port Arbitrator
+  2. Flow Managers
+- Both are processes that maintain the tables that describe packet flows for a logical router
+  - knkown as the Internal Forwarding Information Base (IFIB).
+  - IFIB is used to route received packets to the correct Route Processor for processing.
+- Interfaces internally with all applications that receive packets from outside the router. 
+- Functions without any need for customer configuration.
+  - The policer values can be customized if required. 
+  
+### Configuration Example 
+
+Configure the LPTS policer for the OSPF and BGP flowtypes with the following values globally for all nodes:
+
+```
+Router# configure
+Router(config)# lpts pifib hardware police
+Router(config-pifib-policer-global)# flow ospf unicast default rate 3000
+Router(config-pifib-policer-global)# flow bgp default rate 4000
+Router (config-pifib-policer-global)# commit
+```
+
+Verification:
+
+```
+Router# show run lpts pifib hardware police
+lpts pifib hardware police
+flow ospf unicast default rate 3000
+flow bgp default rate 4000
+```
+
+Further configuration examples [here](https://content.cisco.com/chapter.sjs?uri=/searchable/chapter/content/en/us/td/docs/iosxr/ncs5xx/ipaddress/65x/b-ip-addresses-cg-65x-ncs540/b-ip-addresses-cg-65x-ncs540_chapter_0101.html.xml)
 
 ## Describe MPLS EXP bits
 
