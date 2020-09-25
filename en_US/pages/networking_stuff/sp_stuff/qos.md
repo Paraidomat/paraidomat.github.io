@@ -642,9 +642,40 @@ Further configuration examples [here](https://content.cisco.com/chapter.sjs?uri=
 | Pipe | EXP set according to SP policy | MPLS EXP copied | Perserve IP precedence/DSCP (Forwarding treatment based on MPLS EXP) |
 | Short Pipe | EXP set according to SP policy | MPLS EXP copied | Perserve IP precedence/DSCP (Forwarding treatment based on IP precedence/DSCP |
 
+### MPLS Uniform Mode
 
+![MPLS Uniform Mode](https://www.cisco.com/c/dam/en/us/td/i/200001-300000/270001-280000/279001-280000/279789.eps/_jcr_content/renditions/279789.jpg)
+
+- There is only one DiffServ marking that is relevant for a packet, when traversing the MPLS network.
+- If marking of packet is modified within MPLS network, the updated information is the one considered meaningful at **egress of the LSP**.
+- Any changed to the packet marking withing the MPLS network are permanent and get propagated when the packet leaves the MPLS network.
+
+### MPLS Pipe Mode
+
+![MPLS Pipe Mode](https://www.cisco.com/c/dam/en/us/td/i/200001-300000/270001-280000/279001-280000/279791.eps/_jcr_content/renditions/279791.jpg)
+
+- Two markings are relevant for a packet when traversing the MPLS network.
+  - First, the marking used by the intermediate nodes along the LSP span **including the egress LSR**
+  - Second, the original marking carried by the packet before entering the MPLS network, that will continue to be used once the packet leaves the MPLS network.
+- Any changes to the packet marking within the MPLS network are not permanent and do not get propagated when the packet leaves the MPLS network.
+
+> Note: The egress LSR still uses the marking that was used by intermediate LSRs. 
+> However, the egress LSR has to remove all labels imposed on the original packet.
+> In order to preserve this marking carried in the labels, the edge LSR keeps an 
+> internal copy of the marking before removing the labels. This internal copy is used
+> to classify the packet on the outbound interface (facing the CE) once the labels are 
+> removed. This is usually achieved using `set qos-group` and `match qos-group` commands.
+
+### MPLS Short Pipe Mode
+
+![MPLS Short Pipe Mode](https://www.cisco.com/c/dam/en/us/td/i/200001-300000/270001-280000/279001-280000/279790.eps/_jcr_content/renditions/279790.jpg)
+
+- Is a light variation on the pipe mode.
+- Only difference is that the egress LSR uses the original packet marking instead of using the marking used by the intermediate LSRs.
 
 ## Implement MPLS DiffServ tunneling on Cisco IOS-XR and IOS-XE
+
+[Can be found here](https://www.cisco.com/c/en/us/td/docs/routers/asr9000/software/asr9k-r6-4/qos/configuration/guide/b-qos-cg-asr9000-64x/b-qos-cg-asr9000-64x_chapter_0111.html#ID1203)
 
 ## Troubleshoot QoS IOS-XR and IOS-XE configuration errors
 
