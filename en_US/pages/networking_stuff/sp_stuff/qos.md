@@ -620,7 +620,29 @@ Further configuration examples [here](https://content.cisco.com/chapter.sjs?uri=
 
 ## Describe MPLS EXP bits
 
+[Source](https://www.cisco.com/c/en/us/td/docs/ios-xml/ios/qos_classn/configuration/xe-3s/qos-classn-xe-3s-book/qos-classn-mrkg-mpls-exp.html#GUID-E0946C01-5E7A-4EBA-9F6D-45F2FE9C7138)
+
+- The MPLS experimental bits (EXP) field is a 3-bit field in the MPLS header that you can use to define the QoS treatment (per-hop behavior) that a node should give to a packet. 
+- In an IP network, the DiffServ Code Point (DSCP; 6 bits) defines a class and drop precedence. 
+- The EXP bits can be used to carry some of the information encoded in the IP DSCP and can also be used to encode the dopping precedence.
+- Usually the first 3 bits of the DSCP are copied into the MPLS EXP bits.
+
 ## Describe MPLS QoS implementation concepts and models
+
+[Source](https://www.cisco.com/c/en/us/td/docs/routers/asr9000/software/asr9k-r6-4/qos/configuration/guide/b-qos-cg-asr9000-64x/b-qos-cg-asr9000-64x_chapter_0111.html#ID1203)
+
+- For MPLS QoS, there are three deployment secenarios, based on the tunneling model used:
+  - uniform mode
+  - pipe mode
+  - short pipe mode
+
+| Tunneling Mode | IP-to-Label | Label-to-Label | Label-to-IP |
+| -------------- | ----------- | -------------- | ----------- |
+| Uniform | Copy IP precedence/DSCP to MPLS EXP | MPLS EXP copied | Copy MPLS EXP to IP precedence/DSCP |
+| Pipe | EXP set according to SP policy | MPLS EXP copied | Perserve IP precedence/DSCP (Forwarding treatment based on MPLS EXP) |
+| Short Pipe | EXP set according to SP policy | MPLS EXP copied | Perserve IP precedence/DSCP (Forwarding treatment based on IP precedence/DSCP |
+
+
 
 ## Implement MPLS DiffServ tunneling on Cisco IOS-XR and IOS-XE
 
