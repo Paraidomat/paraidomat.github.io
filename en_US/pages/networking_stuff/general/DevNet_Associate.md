@@ -319,6 +319,36 @@ For a complete list of HTTP Status codes see [developer.mozilla.org](https://dev
 
 ### Describe components for a CI/CD pipeline in application deployments
 
+Continuous Integration/Continuous Delivery (CI/CD) is the process of automating the delivery of software into production environments.
+
+CI/CD consists of two parts:
+
+- **Continuous Integration (CI)** is a development practice where a system is automatically and coninuously built, integrated and tested when code or sourced components change.
+- **Continuous Delivery (CD)** automatically takes the artifacts created in the CI step and performs full staging, acceptance testing and creates a release of the system.
+  - **Continuous depolyment** can then automatically push the release created in the delivery step to the production environment, usually with a manual trigger.
+
+- Starting up CI/CD relies on tool support.
+  - A VCS (like git) for storing and tracing code.
+  - An artifactory for storing artifacts (binaries / completed packages), to be able to test the exact same code that you run
+  - An issue tracking system (e.g. JIRA) for tracking tickets (bugs / features) and how they relate to the code and releases
+  - An automated test and build system (like Jenkins), to test and integrate the solution as well as create deployable artifacts.
+
+- CI/CD should run in a pipeline with testing done in distinct phases to find errors as quickly as possible and to isolate problems efficiently.
+  - Every step of the pipeline should be fully automated and reproducible
+  - Every part of the pipline should be zero touch and tests should provide the same results every time they are run.
+  - When a system is built from components, it's the responsibility of whoever produces the component to run their own CI/CD-pipeline for that component, which then feeds into the main deployment pipeline that integrates all the components.
+    - true regardless where the component comes from.
+
+Advantages:
+- Time to production is reduced significantly
+- Proactively catch bugs during development 
+- Upgrades of individual components can be verified in minutes rather than weeks.
+
+Best practices:
+- CI/CD pipeline should be the only way to deploy code to production
+- development process and definition of done should include passing the CI/CD and test pipelines
+- CI/CD pipeline and related software should be trated as critical infrastructure for the automation project.
+
 ### Construct a Python unit test
 
 [unittest documentation](https://docs.python.org/3/library/unittest.html)
