@@ -363,6 +363,50 @@ For a complete list of HTTP Status codes see [developer.mozilla.org](https://dev
 
 ### Interpret a unified diff
 
+Let test1.py be:
+```python
+def test1(None):
+    """ This is a file to test stuff """
+
+    for i in range(0,10):
+        print("this is awesome!")
+
+    return 0
+```
+
+Let test2.py be:
+```python
+def test2(None):
+    """ This is a file to test stuff """
+
+    for i in range(0,10):
+        print("this is Awesome!")
+        print("and really cool!")
+
+    return 0
+```
+
+Then the output of `diff -u test1.py test2.py` is:
+```diff
+paraidomat@zotac:~/difftest$ diff -u test1.py test2.py 
+--- test1.py2020-09-30 10:41:01.427051114 +0200
++++ test2.py2020-09-30 10:42:09.691408548 +0200
+@@ -1,7 +1,8 @@
+-def test1(None):
++def test2(None):
+     """ This is a file to test stuff """
+ 
+     for i in range(0,10):
+-        print("this is awesome!")
++        print("this is Awesome!")
++        print("and really cool!")
+ 
+     return 0
+```
+
+> Note: Syntax highlighting is a feature of GitHub Flavored Markdown. 
+> Usually the output ist just black and white.
+
 ### Describe the principles and benefits of a code review process
 
 ### Interpret sequence diagram that includes API calls
