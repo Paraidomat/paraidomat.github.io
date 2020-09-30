@@ -369,20 +369,14 @@ For a complete list of HTTP Status codes see [developer.mozilla.org](https://dev
 
 ## Network Fundamentals
 
-### Describe the purpose and usage of MAC addresses and VLANs
+* Describe the purpose and usage of MAC addresses and VLANs
+* Describe the purpose and usage of IP addresses, routes, subnet mask / prefix, and gateways
+* Describe the function of common networking components (such as switches, routers, firewalls, and load balancers)
+* Interpret a basic network topology diagram with elements such as switches, routers, firewalls, load balancers, and port values
+* Describe the function of management, data, and control planes in a network device
+* Describe the functionality of these IP Services: DHCP, DNS, NAT, SNMP, NTP
+* Recognize common protocol port values (such as, SSH, Telnet, HTTP, HTTPS, and NETCONF)
+* Identify cause of application connectivity issues (NAT problem, Transport Port blocked, proxy, and VPN)
+* Explain the impacts of network constraints on applications
 
-### Describe the purpose and usage of IP addresses, routes, subnet mask / prefix, and gateways
-
-### Describe the function of common networking components (such as switches, routers, firewalls, and load balancers)
-
-### Interpret a basic network topology diagram with elements such as switches, routers, firewalls, load balancers, and port values
-
-### Describe the function of management, data, and control planes in a network device
-
-### Describe the functionality of these IP Services: DHCP, DNS, NAT, SNMP, NTP
-
-### Recognize common protocol port values (such as, SSH, Telnet, HTTP, HTTPS, and NETCONF)
-
-### Identify cause of application connectivity issues (NAT problem, Transport Port blocked, proxy, and VPN)
-
-### Explain the impacts of network constraints on applications
+[For all of the above - see this](http://www.tcpipguide.com/free/t_NetworkingFundamentals.htm)
