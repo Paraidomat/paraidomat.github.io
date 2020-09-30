@@ -319,6 +319,7 @@ For a complete list of HTTP Status codes see [developer.mozilla.org](https://dev
 
 ### Describe components for a CI/CD pipeline in application deployments
 
+[Source](https://developer.cisco.com/docs/network-automation-delivery-model/#!cicd/best-practices)
 Continuous Integration/Continuous Delivery (CI/CD) is the process of automating the delivery of software into production environments.
 
 CI/CD consists of two parts:
