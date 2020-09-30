@@ -409,6 +409,22 @@ paraidomat@zotac:~/difftest$ diff -u test1.py test2.py
 
 ### Describe the principles and benefits of a code review process
 
+> A code review is a process where someone other than the author(s) of a piece of code examines that code.
+[Source](https://google.github.io/eng-practices/review/)
+
+#### Benefits:
+
+- Better code quality
+  - improve internal code quality and maintainabilty
+- Finding defects
+  - improve quality regarding eternal aspects, especiall correctness, but also performance problems, security vulerabilities, injected malware
+- Learning/Knowledge transfer
+- Increase sense of mutual responsibility
+  - increase sense of collective code ownership and solidarity
+- Finding better solutions
+- Complying to QA guidelines
+[Source](https://en.wikipedia.org/wiki/Code_review)
+
 ### Interpret sequence diagram that includes API calls
 
 ## Network Fundamentals
