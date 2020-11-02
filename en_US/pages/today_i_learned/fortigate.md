@@ -1,5 +1,7 @@
 # Fortigate
 
+Note: One interface can only be attached to one zone, not to several zones.
+
 ## get
 
 | Usage | Command | 
@@ -23,7 +25,7 @@
 
 | Usage | Command | 
 | ----- | ------- | 
-| Show interface configuration | `show system interface | grep -f <interface-name>` |
+| Show interface configuration | `show system interface \| grep -f <interface-name>` |
 
 ## Execute
 
