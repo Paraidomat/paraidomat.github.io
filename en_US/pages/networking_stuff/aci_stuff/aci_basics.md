@@ -15,7 +15,13 @@
 
 > Always check for scalability
 
-# Helpful Commands
+# Where to find stuff on the GUI
+
+## Check l3dom for l3outs - Version 4.2(4i)
+
+- Fabric -> Access Policies -> Physical and External Domains -> L3 Domains
+
+# Helpful Commands CLI
 
 ## Show active leafs
 
