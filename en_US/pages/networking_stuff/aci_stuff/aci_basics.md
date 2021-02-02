@@ -42,3 +42,10 @@
 ## Check for existing vlans in the whole fabric
 
 - `show vlan-domain vlan {{vlanid}}`
+
+## Backup Users
+
+| Username | GUI/CLI? |
+| -------- | -------- |
+| `apic#fallback\\admin` | GUI |
+| `apic:fallback\\admin` | CLI |
