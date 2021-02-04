@@ -12,6 +12,13 @@ Note: One interface can only be attached to one zone, not to several zones.
 | Get Interface Speed | `get system interface physical` |
 | Get Transceiver Part No. | `get system interface transceiver` |
 
+Pro Tip: If you move in config mode to a specific object and use `get` there, you get a different view about the dynamic objects.
+```
+config system interface
+ edit port1
+  get
+  {{output ommited}}
+```
 
 
 ## Diagnose
@@ -25,7 +32,7 @@ Note: One interface can only be attached to one zone, not to several zones.
 
 | Usage | Command | 
 | ----- | ------- | 
-| Show interface configuration | `show system interface \| grep -f <interface-name>` |
+| Show interface configuration | `show system interface \| grep -f <interface-name>` (or move to the interface in config mode and drop `get` there) |
 
 ## Execute
 
