@@ -1,5 +1,16 @@
 # Cisco IOS XR 
 
+## Show Hostname of originating host for IS-IS
+
+```
+RP/0/RSP0/CPU0:routerA#show isis ipv4 route 10.1.1.1/32
+Fri Feb 19 11:35:00.034 Somewhere
+
+L2 10.1.1.1/32 [20320/115]
+     via x.y.z.a, tunnel-te1234, routerB tag 19, Weight: 0
+RP/0/RSP0/CPU0:routerA#            ^--- This is the router you're looking for.
+```
+
 ## Show MPLS Labels for local prefix
 
 ```
