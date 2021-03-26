@@ -65,3 +65,63 @@
   - All points of attachment for a given EVPN instance use the same VLAN ID, 
     and no other EVPN instance uses this VLAN ID.
     
+## Slide Deck
+
+https://www.cisco.com/c/dam/m/en_us/network-intelligence/service-provider/digital-transformation/knowledge-network-webinars/pdfs/0420-epn-ckn.pdf
+
+## Why EVPN
+
+- VPLS and PBB (Provider Backbone Briding) rely on flooding and learning to build L2 forwarding database
+- Network operators needs:
+  - Data Center Interconnect (DCI)
+  - Cloud and Services virtualization
+  - Reduce protocol stack 
+  - Simplify network
+  - Integrated L2 and L3 Services over the same VPN
+
+### VPLS challenges for per-flow redundancy
+
+- Existing VPLS solutions do not offer an All-Active per-flow redundancy
+- Looping of Traffic Flooded from PE
+- Duplicate Frames from Floods from the Core
+- MAC Flip-Flopping over Pseudowire
+  - e.g. Port-Channel Load-Balancing does not produce a consistent hash-value for a frame with the same source MAC (non MAC based hash-schemes)
+
+### Data Center Interconnect requirements
+
+> not fully addressed by current L2VPN technologies
+
+- Per-flow redundancy and load balancing
+- simplified provisioning and operation
+- optimal forwarding
+- fast convergance
+- MAC Address Scalability
+
+**EVPN** with a choice of data plane encapsulation (MPLS, VxLAN, PBB) is the designed to address these requirements.
+
+## EVPN
+
+### EVPN Unifying control plane
+
+- Control Plane: 
+  - EVPN MP-BGP
+- Data Plane:
+  - MPLS (RFC-7432)
+    - EVPN over MPLS (E-LAN service)
+    - All-active Multi-homing
+    - SR/SR-TE as underlay
+    - EVPN-VPWS (E-Line service)
+  - NVP evpn-overlay
+    - //omitted
+  - PBB (RFC-7623)
+    - PBB Encapsulation for CMAC scalability
+    - MPLS as underlay
+    - All-active Multi-homing
+    - BMACs advertisements  
+  - VPWS (evpn-vpws)
+    - P2P services
+    - MPLS as underlay
+    - All-active Multi-homing
+    - Flexible xconnect services
+
+... continue on slide 9
