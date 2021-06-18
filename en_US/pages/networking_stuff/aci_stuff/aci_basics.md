@@ -49,3 +49,12 @@
 | -------- | -------- |
 | `apic#fallback\\admin` | GUI |
 | `apic:fallback\\admin` | CLI |
+
+## `iping` Syntax
+
+```
+iping <destination_ip> -V <Tenant>:<VRF> -S <source_ip> -c <count> ( optional -i 0 for flooding ).
+```
+
+run on leaf.
+
