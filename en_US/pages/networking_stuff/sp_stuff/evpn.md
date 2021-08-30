@@ -5,6 +5,9 @@
 * [Requirements for Ethernet VPN (EVPN)](https://tools.ietf.org/html/rfc7209)
 * [BGP MPLS-Based Ethernet VPN](https://tools.ietf.org/html/rfc7432)
 * [A Modern, Open and Scalable Fabric with VXLAN and EVPN](https://www.cisco.com/c/dam/en/us/td/docs/switches/datacenter/nexus9000/sw/vxlan_evpn/VXLAN_EVPN.pdf)
+* [EVPN Deep Dive and Troubleshooting with IOS-XR](https://www.ciscolive.com/c/dam/r/ciscolive/us/docs/2019/pdf/BRKSPG-3965.pdf)
+  - Configuration examples for Service Provider Metro and Data Center
+* [IOS-XR EVPN Hands On Lab](https://www.ciscolive.com/c/dam/r/ciscolive/emea/docs/2019/pdf/LTRSPG-2968.pdf)
 
 ## Troubleshooting
 
