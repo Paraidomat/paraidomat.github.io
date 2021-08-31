@@ -25,6 +25,7 @@
   * [MPLS](pages/networking_stuff/sp_stuff/mpls.md)
   * [QoS](pages/networking_stuff/sp_stuff/qos.md)
   * [EVPN](pages/networking_stuff/sp_stuff/evpn.md)
+  * [Segment Routing](pages/networking_stuff/sp_stuff/segment-routing.md)
   * # ACI Stuff
   * [ACI Basics](pages/networking_stuff/aci_stuff/aci_basics.md)
 
