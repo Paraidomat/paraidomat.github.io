@@ -35,7 +35,17 @@
 
 ### Introducing EVPN Basics
 
-### Examining EVPN Terminoligy and Concepts
+- BGP Control Plane
+- Same principles as L3VPNs 
+- No use of PWs
+
+#### Benefits
+
+- Integrated L2 and L3 services
+- Efficiency (no flood and learn)
+- flexible Multihoming (n-way redundancy)
+
+### Examining EVPN Terminology and Concepts
 
 ### EVPN Multihoming and Suppression Mechanisms
 
