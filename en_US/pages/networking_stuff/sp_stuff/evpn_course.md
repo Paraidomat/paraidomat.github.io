@@ -44,6 +44,14 @@
 - Integrated L2 and L3 services
 - Efficiency (no flood and learn)
 - flexible Multihoming (n-way redundancy)
+- Control Plane and Data Plane Separation
+  - Control Plane: EVPN (MP-BGP)
+  - Data Plane:
+    - MPLS (RFC7432)
+    - PBB-MPLS (RFC7623)
+    - Network Virtualization Overlay (NVO)
+      (VXLAN, NVGRE, MPLSoGRE)
+      draft-ietf-bess-evpn-overlay
 
 ### Examining EVPN Terminology and Concepts
 
