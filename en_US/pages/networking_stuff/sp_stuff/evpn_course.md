@@ -146,12 +146,26 @@
 - Split Horizon
   - Egress PEs use ESI Label to perform selective split-horizon filtering
 - Aliasing
+  - Use the ESI as abstaction layer.
+  - Traffic is forwarded to an ESI which could be reachable via several PEs (active-active)
+    - ESI -> PE mapping is using recursive lookup.
+    - In case of single-active one PE will be designated forwarder, the other PE(s) will be standby
 - Designated Forwarder (DF)
+  - Similar to the concept of DF in multicasting
+  - DF handles BUM (Broadcast, Unknown Unicast, Multicast) traffic.
+  - DF is the one sending the traffic **towards** the ES
+  - all routers are receiving traffic **from** the ES
+  - DF is elected using modulo operation
+    - VLAN mod N (N = Number of PEs for ESI)
+    - All PEs join a ordered list (lowest IP first)
+    - The modulos value defines which PE will take care of which VLAN. 
+  - DF Filtering
+  - DF Failover
 - ARP broadcast suppression
+  - Construct ARP caches on EVPN PEs, synchronize via BGP or data plane snooping
+  - PEs act as ARP proxies for local hosts
 - Unknown Unicast Suppression
-
-
-
+  - prevent unkown unicast from going to the core using `unkown-unicast-suppress`
 
 ### EVPN Startup Sequence
 
