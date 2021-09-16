@@ -131,10 +131,13 @@
   | Type | Name |
   | ---- | ---- |
   |    1 | Ethernet Autodiscovery (A-D) Route |
-  |    2 | MAC/IP Advertisement |
+  |    2 | MAC/IP Advertisement (ARP suppression) |
   |    3 | Inclusive Multicast Route |
-  |    4 | Ethernet Segment Route |
+  |    4 | Ethernet Segment Route (Designated Forwarder Election) |
   |    5 | IP Prefix Route |
+
+> TODO: Add explanation for different Route-Types
+
 
 ### EVPN Multihoming and Suppression Mechanisms
 
