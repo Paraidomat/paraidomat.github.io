@@ -77,7 +77,7 @@
   | MAC-Mobility         |
   | Default Gateway      |
 
-##### EVPN Instance
+#### EVPN Instance
 
 > EVPN Instance (EVI) Identifies a VPN in the MPLS/IP Network
 
@@ -90,14 +90,14 @@
 - VLAN-Aware Bundling Service Interface
   - EVI consists of multiple broadcast domains (VLANs), with each VLAN having its own bridge table.
 
-##### Ethernet Tag-ID
+#### Ethernet Tag-ID
 
 - 32-bit field containing either a 12-bit (VLAN-ID) or 24-bit ID that identifies a broadcast domain **in** an EVI.
 - EVI consists of one or more broadcast domains (VLANs)
 - A given VLAN can be represented by multiple VLAN-IDs
   - PEs are responsible for transforming translation
 
-##### Ethernet Segment
+#### Ethernet Segment
 
 - Is a "site" connected to one or more PEs
 - could be a single device (CE) or an entire network
@@ -117,7 +117,7 @@
   | 0x04 | Router-ID ESI (auto-generated or operator-configured) |
   | 0x05 | AS-based ESI (auto-generated or operator-configured) |
   
-##### BEP EVPN Routes
+#### BEP EVPN Routes
 
 - EVPN defines a new NLRI (AFI = 25, SAFI = 70)
 - BGP capabilities advertisement is used to ensure that two speakers support EVPN
@@ -138,8 +138,20 @@
 
 > TODO: Add explanation for different Route-Types
 
-
 ### EVPN Multihoming and Suppression Mechanisms
+
+- MHD ES autodiscovery
+- MAC mass-withdraw
+  - withdraw the reachability of a specific Ethernet Segment instead of hundreds of single MACs
+- Split Horizon
+  - Egress PEs use ESI Label to perform selective split-horizon filtering
+- Aliasing
+- Designated Forwarder (DF)
+- ARP broadcast suppression
+- Unknown Unicast Suppression
+
+
+
 
 ### EVPN Startup Sequence
 
