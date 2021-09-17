@@ -3,12 +3,14 @@
 ## Show Hostname of originating host for IS-IS
 
 ```
-RP/0/RSP0/CPU0:routerA#show isis ipv4 route 10.1.1.1/32
-Fri Feb 19 11:35:00.034 Somewhere
+RP/0/RSP0/CPU0:routerA#show isis ipv4 route detail a.b.c.d/32
+Fri Sep 17 09:43:28.165 CEST
 
-L2 10.1.1.1/32 [20320/115]
-     via x.y.z.a, tunnel-te1234, routerB tag 19, Weight: 0
-RP/0/RSP0/CPU0:routerA#            ^--- This is the router you're looking for.
+L2 a.b.c.d/32 [20490/115] critical priority
+     via x.y.z.b/32, Bundle-Ether1337, routerB tag 17, Weight: 0
+     src routerC.00-00, d.e.f.g, tag 17, prefix-SID index 123, R:0 N:1
+         P:0 E:0 V:0 L:0
+         ^--- You are looking for routerC
 ```
 
 ## Show MPLS Labels for local prefix
