@@ -169,6 +169,17 @@
 
 ### EVPN Startup Sequence
 
+Two different Types auf Autodiscoveries:
+
+1. Segment Autodiscovery
+   - ESI Autosensing
+   - Redundancy Group Membership Autodiscovery
+   - DF Election and VLAN Carving
+   - ESI Label and MH Type Discovery
+3. VPN Autodiscovery
+   - Multicast Tunnel Endpoint Discovery
+
+
 ### Examining EVPN Traffic Forwarding
 
 ### Handling Multidestination Traffic
