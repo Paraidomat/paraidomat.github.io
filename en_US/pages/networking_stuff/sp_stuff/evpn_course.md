@@ -122,12 +122,15 @@
 - EVPN defines a new NLRI (AFI = 25, SAFI = 70)
 - BGP capabilities advertisement is used to ensure that two speakers support EVPN
 - EVPN NLRI
+  
   | Size | Content |
   | ---- | ------- |
   | 1 byte | Route-Type (1-4) |
   | 1 byte | Length |
   | variable | Route Type-Specific |
+  
 - EVPN Route-Types
+  
   | Type | Name |
   | ---- | ---- |
   |    1 | Ethernet Autodiscovery (A-D) Route |
@@ -176,11 +179,25 @@ Two different Types auf Autodiscoveries:
    - Redundancy Group Membership Autodiscovery
    - DF Election and VLAN Carving
    - ESI Label and MH Type Discovery
-3. VPN Autodiscovery
+2. VPN Autodiscovery
    - Multicast Tunnel Endpoint Discovery
 
-
 ### Examining EVPN Traffic Forwarding
+
+#### MAC Address Reachability
+
+1. PE(s) X receive frame von CE
+2. PE X advertises MAC/IP with ES field set to the ESI of the receiving interface of said PE to all other PEs.
+3. The other PEs now know to reach the MAC/IP behind that ESI.
+4. The ESI maps to the PE(s) X.
+
+##### MPLS Label Stack Pushed at Ingress PE
+
+> TODO: Add this. PSN = Packet Switched Label
+
+#### Unicast Traffic Forwarding
+
+
 
 ### Handling Multidestination Traffic
 
