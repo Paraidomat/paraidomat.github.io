@@ -16,7 +16,7 @@ L2 a.b.c.d/32 [20490/115] critical priority
 ## Show MPLS Labels for local prefix
 
 ```
-show mpls forwarding vrf { vrf } 
+show mpls forwarding [vrf { vrf }] [labels { incoming_label }]
 ```
 
 ## Show BGP forwarding for labels
