@@ -1,6 +1,6 @@
 # QoS 
 
-> Note: Also check out [Fudamentals of QoS](pages/networking_stuff/general/fundamentals_of_qos.md)
+> Note: Also check out [Fudamentals of QoS](../general/fundamentals_of_qos.md)
 
 ## Describe the DiffServ and IntServ QoS models
 
