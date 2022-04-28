@@ -26,6 +26,7 @@
   * [QoS](pages/networking_stuff/sp_stuff/qos.md)
   * [EVPN](pages/networking_stuff/sp_stuff/evpn.md)
   * [Segment Routing](pages/networking_stuff/sp_stuff/segment-routing.md)
+  * [Mobile / Celluar Network Fundamentals](pages/networking_stuff/sp_stuff/mobile_fundamentals.md)
   * # ACI Stuff
   * [ACI Basics](pages/networking_stuff/aci_stuff/aci_basics.md)
 
