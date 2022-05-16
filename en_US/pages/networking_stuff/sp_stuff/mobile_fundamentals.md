@@ -94,3 +94,16 @@ Example: 16-QAM
 ![16-QAM Quadrature Amplitude Modulation](https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/16QAM_Gray_Coded.svg/1200px-16QAM_Gray_Coded.svg.png)
 
 ### Circuit Switching vs. Packet Switching
+
+- Circuit Switching: dedicated end-to-end circuit established
+- Packet Switching: no end-to-end circuit; voice carried as packets
+
+### The Cellular Concept
+
+- Use many low power transmitters in one coverage area
+- Cell = basic geographic unit (honeycomb)
+- Cell has no regular shape (depends on wireless propagation conditions)
+
+### Co-channel Interference
+
+- Happens when two neighboring cells use the exact same channels 
