@@ -107,3 +107,5 @@ Example: 16-QAM
 ### Co-channel Interference
 
 - Happens when two neighboring cells use the exact same channels 
+- Solution: Duplex Channels are divided among a cluster of cells
+
