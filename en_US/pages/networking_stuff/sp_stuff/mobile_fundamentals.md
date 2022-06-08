@@ -221,4 +221,73 @@ Example: 16-QAM
   - Inter BSS, Inter MSC handovers
 - Channel assignment on A Interface
 - Gateway MSC (GMSC) handles interface with other [PLMN](https://en.wikipedia.org/wiki/Public_land_mobile_network)s/GMSC
+
+### Home Location Register (HLR)
+
+- Central database for subscriber/mobile users information
+  - Subscriber ID
+  - Authentication key
+  - Subscriber status (registered/unregistered)
+  - Services a mobile subscriber can use
+  - Current location of subscriber (which VLR area)
+
+### Authentication Center (AUC)
+
+- Normally built as part of the HLR
+- Uses authentication key to generate parameters for
+  - user authentication/verification
+  - generation ciphering key (for encryption between MS and BTS)
+- required when user initiates connection
+
+### Visitor Location Register (VLR)
+
+- A PLMN service area is divited into MSC areas
+- A VLR may serve more than one MSCs
+  - normally one VLR is associated with one MSC
+- Hold temporary data to avoid overburdening of HLR
+
+### Equipment Identity Register (EIR)
+
+- White List
+  - Contains all approved types of mobile equipment (type approval codes)
+- Black List
+  - Contains all mobile equipment to be barred (complete IMEI)
+- Gray List
+  - Contains all mobile equipment to be traced (complete IMEI)
+
+### Operations and Maintainence Center (OMC)
+
+- Monitoring and performance supervision
+  - Fault report and alarm handling
+- configuration of network
+- stores data for minimum one year
  
+### GSM Channel Types
+
+- Physical channels
+- Logical channels
+  - Traffic channels (to carry voice or data)
+  - Control channels (signalling between MS and BTS)
+    - Critical for network operation
+      - MS registration
+      - Handover
+      - Call generation
+      - Call maintainence
+    - Broadcast channels
+      - Broadcast control channel (BCCH)
+        - Network and cell identity
+        - Information required to connect to Network
+      - Frequency Correction Channel (FCCH)
+        - Fine frequency synchronization
+      - Synchronization Channel (SCH)
+        - Frame synchronization (Frame number)
+    - Common Control Channels
+      - Paging channel (PCH)
+      - Random access channel (RACH)
+      - Access grant channel (AGCH)
+      - Standalone dedicated control channel (SDCCH)
+    - Slow Associated Control Channel (SACCH)
+      - Used to carry measurement report in uplink
+        - received power level and quality of TCH
+      - Used to carry power control and handover commands
+    
