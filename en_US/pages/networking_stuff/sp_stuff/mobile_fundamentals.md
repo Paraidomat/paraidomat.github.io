@@ -109,3 +109,116 @@ Example: 16-QAM
 - Happens when two neighboring cells use the exact same channels 
 - Solution: Duplex Channels are divided among a cluster of cells
 
+### Link Budget
+
+- Used to calculate the received power
+- Received power should be above minimum sensivity of BTS
+
+### Three main components of a mobile network
+
+- Mobile Station (= Mobile Equipment + SIM)
+- Radio Access Network (RAN)
+- Core Network (CN)
+  - Control of MS
+  - call establishment
+  - routing
+
+### Back Haul Transmission Network
+
+- Connects RAN with CN
+- Can be
+  - Microwave Link
+  - Electrical Cable
+  - Optical Fiber Cable
+- Transmission protocols: [PDH](https://en.wikipedia.org/wiki/Plesiochronous_digital_hierarchy), [SDH](https://en.wikipedia.org/wiki/Synchronous_optical_networking), [DWDM](https://en.wikipedia.org/wiki/Wavelength-division_multiplexing#Dense_WDM)
+
+### 1G Mobile Communication Systems
+
+- Advanced Mobile Phone (AMP) Systems, USA, 1982
+- Nordic Mobile Telephone (NMT) System, Scandinavia
+- Total Access Communication (TAC) System, UK
+
+- Features:
+  - Used FDMA
+  - Analog FM Modulation
+- Weaknesses:
+  - Weak Security
+  - No Roaming between operators
+
+## 2G Mobile Communication Systems
+
+### 2G Mobile Communication Systems
+
+- European Telecommunication Standards Institute (ETSI), formed in 1988
+  - First Global System for Mobiles (GSM) System in 1991
+  - Still in use in many countries
+- Digital AMPs in USA -> Obsolete 
+- Digital Systems
+  - Voice is digitized
+  - Voice encryption
+  - support roaming
+  - SMS & data
+
+### GSM Access Technology & Frequency Bands
+
+- FDMA/TDMA
+- Popular Frequency bands
+  - 900 MHz band
+    - 890-915 MHz (Uplink)
+    - 935-960 MHz (Downlink)
+  - 1800 MHz band
+    - 1710-1785 MHz (Uplink)
+    - 1805-1880 MHz (Downlink)
+  - 1900 MHz band
+    - 1850-1910 MHz (Uplink)
+    - 1930-1990 MHz (Downlink)
+ 
+ ### GSM Architecture 
+ 
+ ![GSM Architecture](https://www.researchgate.net/profile/Bodunrin-Bakare-2/publication/355397163/figure/fig2/AS:1080595870429209@1634645540744/2G-GSM-architecture-redrawn-version-11-12.jpg)
+ 
+ - Radio Access Network is called Basestation Subsystem (BSS)
+ - Core Network is called Network Subsystem (NSS)
+
+### Bastestation Subsystem (BSS)
+
+- Consists of 
+  - one Base Station Controller (BSC)
+  - one or more Base Transceiver Stations (BTSs)
+- A RAN may contain one more BSSs
+- Transmission between BTS and BSC: *Front Haul Link*
+
+### Base Transceiver Station (BTS)
+
+- Contains radio transmitter/receiver to connect with MS
+- User Voice encryption
+- Modulation
+  - GMSK (type of frequency shift keying)
+- MS Paging
+- Receives MS measurement reports and passes it to BSC
+
+### Base Station Controller (BSC)
+
+- Controls one or more BTSs
+- Switches traffic and signalling to/from BTSs and MSC
+- Radio Resource Management for BSS
+  - Assigns channels on Air and Abis Interface
+  - Use received meaasurement report to 
+    - Controls MS handover
+    - Power control for BTS and MS
+ 
+ ### Network Subsystem (NSS)
+ 
+ - Consists of MSC and Associated databases
+   - Performs all the call switching and routing
+   - Tracking the location of the mobile
+
+### Mobile Switching Center (MSC)
+
+- Digital Switch that performs
+  - Call setup
+  - Call routing between MS & other MSCs/external network
+  - Inter BSS, Inter MSC handovers
+- Channel assignment on A Interface
+- Gateway MSC (GMSC) handles interface with other [PLMN](https://en.wikipedia.org/wiki/Public_land_mobile_network)s/GMSC
+ 
