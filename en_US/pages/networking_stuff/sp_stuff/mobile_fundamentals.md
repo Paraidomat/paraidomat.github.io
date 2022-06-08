@@ -175,7 +175,7 @@ Example: 16-QAM
  
  ### GSM Architecture 
  
- ![GSM Architecture](https://www.researchgate.net/profile/Bodunrin-Bakare-2/publication/355397163/figure/fig2/AS:1080595870429209@1634645540744/2G-GSM-architecture-redrawn-version-11-12.jpg)
+![GSM Architecture](https://www.researchgate.net/profile/Bodunrin-Bakare-2/publication/355397163/figure/fig2/AS:1080595870429209@1634645540744/2G-GSM-architecture-redrawn-version-11-12.jpg)
  
  - Radio Access Network is called Basestation Subsystem (BSS)
  - Core Network is called Network Subsystem (NSS)
