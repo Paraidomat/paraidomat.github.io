@@ -27,6 +27,7 @@ config system interface
 | ----- | ------- | 
 | Get interface counters | `diag netlink interface list [<interface>] <Enter>` |
 | Get policy counters | `diag firewall iprope show 10004 <policy_id>` |
+| Run [Sniffer](https://help.fortinet.com/fa/cli-olh/5-6-1/Document/1600_diagnose/sniffer.htm) | `diag sniffer packet {{ interface }} '{{ filter }}' {{ verbosity }} {{ count }}` |
 
 ## Show
 
