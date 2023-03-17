@@ -58,3 +58,7 @@ iping <destination_ip> -V <Tenant>:<VRF> -S <source_ip> -c <count> ( optional -i
 
 run on leaf.
 
+### I Commands
+
+Find additional documentation on the `i`-commands [here](https://www.cisco.com/c/en/us/td/docs/switches/datacenter/aci/apic/sw/3-x/cli/inxos/13x/b_ACI_Switch_Command_Ref_13x/b_ACI_Switch_Command_Ref_13x_chapter_0111.pdf)
+
