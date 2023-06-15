@@ -37,3 +37,25 @@ edit { route-policy | prefix-set | as-path-set | community-set | extcommunit
 
 [Config Guide](https://www.cisco.com/c/en/us/td/docs/routers/asr9000/software/routing/configuration/guide/rcasr9krpl.html#wp1117659)
 
+## Show Transceiver / SFP / QSFP Information
+
+```
+RP/0/RP0/CPU0:xr1#show controllers Hu0/2/0/12     
+Operational data for interface HundredGigE0/2/0/12:
+
+State:
+    Administrative state: disabled
+    Operational state: Down (Reason: Link is shutdown)
+    LED state: Not Applicable
+
+Phy:
+    Media type: R fiber over 4 Lane optics (long reach)
+    Optics:
+        Vendor: CISCO-FINISAR                           <-----
+        Part number: FTLC1154RDPL-C1                    <-----
+        Serial number: {{redacted}}
+        Wavelength: 1302 nm
+    Digital Optical Monitoring:
+        Transceiver Temp: 33.246 C
+        Transceiver Voltage: 3.256 V
+```
