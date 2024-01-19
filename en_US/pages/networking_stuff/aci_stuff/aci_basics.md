@@ -62,3 +62,6 @@ run on leaf.
 
 Find additional documentation on the `i`-commands [here](https://www.cisco.com/c/en/us/td/docs/switches/datacenter/aci/apic/sw/3-x/cli/inxos/13x/b_ACI_Switch_Command_Ref_13x/b_ACI_Switch_Command_Ref_13x_chapter_0111.pdf)
 
+## moquery
+
+This [this](https://learnwithsalman.com/aci-moquery/).
