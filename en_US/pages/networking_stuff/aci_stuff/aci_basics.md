@@ -38,7 +38,10 @@
 
 - `show logging ip access-list internal packet-log deny | grep {{ $ipaddress }} | head -n 15`
   - The `head -n 15` is important because otherwise you will get a lot of old logging messages.
-  
+## check if a contract is dropping traffic
+
+- `show acllog deny l3 pkt tenant {{tenant}} vrf {{VRF}} | grep -A1 {{beginning of IP}}`
+
 ## Check for existing vlans in the whole fabric
 
 - `show vlan-domain vlan {{vlanid}}`
